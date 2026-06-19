@@ -203,9 +203,9 @@ export default function LandingPage() {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(5,13,26,0.65) 0%, rgba(5,13,26,0.55) 50%, rgba(5,13,26,0.82) 100%)' }} />
 
         {/* Floating ambient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none opacity-20 animate-float-slow"
+        <div className="absolute top-1/4 left-1/4 w-48 sm:w-96 h-48 sm:h-96 rounded-full pointer-events-none opacity-20 animate-float-slow"
           style={{ background: `radial-gradient(circle, ${B.blue}, transparent 70%)`, filter: 'blur(60px)' }} />
-        <div className="absolute bottom-1/3 right-1/4 w-72 h-72 rounded-full pointer-events-none opacity-15 animate-float"
+        <div className="absolute bottom-1/3 right-1/4 w-36 sm:w-72 h-36 sm:h-72 rounded-full pointer-events-none opacity-15 animate-float"
           style={{ background: `radial-gradient(circle, ${B.green}, transparent 70%)`, filter: 'blur(50px)', animationDelay: '2s' }} />
 
         {/* Hero content */}
@@ -273,14 +273,14 @@ export default function LandingPage() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 items-start">
+            <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-start">
               <a href="#waitlist"
-                className="flex items-center gap-2.5 px-7 py-4 rounded-2xl font-bold text-white text-base transition-all duration-200 hover:scale-105 active:scale-95"
+                className="flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl font-bold text-white text-base transition-all duration-200 hover:scale-105 active:scale-95"
                 style={{ background: `linear-gradient(135deg, ${B.blue}, #1E40AF)`, boxShadow: '0 8px 28px rgba(15,76,129,0.5)' }}>
                 Join the Waitlist <ArrowRight className="w-5 h-5" />
               </a>
               <Link href="/trips"
-                className="flex items-center gap-2.5 px-7 py-4 rounded-2xl font-bold text-white text-base transition-all duration-200 hover:bg-white/20 active:scale-95"
+                className="flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl font-bold text-white text-base transition-all duration-200 hover:bg-white/20 active:scale-95"
                 style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.25)', backdropFilter: 'blur(12px)' }}>
                 Explore Trips
               </Link>
@@ -335,8 +335,8 @@ export default function LandingPage() {
                     <Icon className="w-4 h-4" style={{ color }} />
                   </div>
                   <div>
-                    <p className="font-extrabold text-white text-lg leading-none">{val}</p>
-                    <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.55)' }}>{label}</p>
+                    <p className="font-extrabold text-white text-base sm:text-lg leading-none">{val}</p>
+                    <p className="text-[10px] sm:text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.55)' }}>{label}</p>
                   </div>
                 </div>
               ))}
@@ -585,15 +585,15 @@ export default function LandingPage() {
               { icon: Lock, title: 'Secure Payments', body: 'All payments are encrypted and escrowed. Funds release only after trip confirmation.', color: '#8B5CF6', delay: 0.32 },
             ].map(({ icon: Icon, title, body, color, delay }) => (
               <div key={title}
-                style={{ ...reveal(s5.v, delay), background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 24, padding: '1.75rem' }}
-                className="text-center group hover:-translate-y-1 hover:shadow-2xl transition-all duration-300"
+                style={{ ...reveal(s5.v, delay), background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 20 }}
+                className="text-center group hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 p-4 md:p-7"
               >
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 group-hover:scale-110"
+                <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 transition-all duration-300 group-hover:scale-110"
                   style={{ background: `${color}28` }}>
-                  <Icon className="w-7 h-7" style={{ color }} />
+                  <Icon className="w-5 h-5 md:w-7 md:h-7" style={{ color }} />
                 </div>
-                <h3 className="font-bold text-white mb-2">{title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>{body}</p>
+                <h3 className="font-bold text-white mb-1.5 md:mb-2 text-sm md:text-base">{title}</h3>
+                <p className="text-xs md:text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>{body}</p>
               </div>
             ))}
           </div>
@@ -660,7 +660,7 @@ export default function LandingPage() {
               View all trips <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
             {[
               { name: 'Goa', tag: 'Beach', trips: 42, img: 'photo-1512343879784-a960bf40e7f2' },
               { name: 'Manali', tag: 'Mountains', trips: 28, img: 'photo-1558618666-fcd25c85cd64' },
@@ -680,9 +680,9 @@ export default function LandingPage() {
                   <div className="absolute top-4 left-4">
                     <span className="text-xs font-bold px-3 py-1 rounded-full text-white" style={{ background: `${B.orng}CC` }}>{tag}</span>
                   </div>
-                  <div className="absolute bottom-5 left-5 right-5">
-                    <h3 className="font-bold text-white text-xl">{name}</h3>
-                    <p className="text-white/70 text-sm mt-1">{trips} active trips</p>
+                  <div className="absolute bottom-3 sm:bottom-5 left-3 sm:left-5 right-3 sm:right-5">
+                    <h3 className="font-bold text-white text-base sm:text-xl">{name}</h3>
+                    <p className="text-white/70 text-xs sm:text-sm mt-0.5 sm:mt-1">{trips} active trips</p>
                   </div>
                 </div>
               </Link>
@@ -726,7 +726,7 @@ export default function LandingPage() {
                 style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', color: '#fff' }}
               />
               <button type="submit"
-                className="px-8 py-4 rounded-2xl font-bold text-white text-base transition-all hover:scale-105 active:scale-95 shrink-0"
+                className="px-8 py-4 rounded-2xl font-bold text-white text-base transition-all hover:scale-105 active:scale-95 shrink-0 w-full sm:w-auto"
                 style={{ background: `linear-gradient(135deg, ${B.blue}, #1E40AF)`, boxShadow: '0 8px 24px rgba(15,76,129,0.5)' }}>
                 Join Waitlist →
               </button>
