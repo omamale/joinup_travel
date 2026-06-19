@@ -442,25 +442,25 @@ export default function LandingPage() {
               Built for real travellers
             </h2>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {[
-              { icon: Shield, title: 'Identity Verification', body: "Government ID + selfie verification for every member. Know exactly who you're travelling with.", color: B.blue, delay: 0 },
-              { icon: TrendingUp, title: 'Trust Score', body: 'Earn trust points for verified ID, completed trips, positive reviews and consistent behaviour.', color: B.green, delay: 0.05 },
-              { icon: Bot, title: 'AI Trip Planner', body: 'Generate a complete day-by-day itinerary with hotels, food, budget breakdown in under 30 seconds.', color: '#8B5CF6', delay: 0.1 },
-              { icon: MessageCircle, title: 'Group Chat', body: 'Real-time encrypted chat for your trip group. Share photos, locations, plans — all in one thread.', color: B.orng, delay: 0.15 },
-              { icon: CreditCard, title: 'Expense Splitting', body: 'Track shared costs, split bills fairly, and settle up in one tap. Zero awkward money conversations.', color: '#EC4899', delay: 0.2 },
-              { icon: Star, title: 'Ratings & Reviews', body: 'Rate your companions after every trip. Build a reputation that opens doors to premium groups.', color: '#FBBF24', delay: 0.25 },
-              { icon: Heart, title: 'Girls-Only Trips', body: 'Dedicated verified women-only trips with extra safety layers and a moderated community.', color: '#F43F5E', delay: 0.3 },
-              { icon: AlertTriangle, title: 'Emergency SOS', body: 'One-tap SOS sends your live location to emergency contacts and our safety team instantly.', color: '#EF4444', delay: 0.35 },
+              { icon: Shield, title: 'ID Verification', body: "Govt ID + selfie for every member. Know exactly who you're travelling with.", color: B.blue, delay: 0 },
+              { icon: TrendingUp, title: 'Trust Score', body: 'Earn points for verified ID, completed trips and positive reviews.', color: B.green, delay: 0.05 },
+              { icon: Bot, title: 'AI Planner', body: 'Full itinerary with hotels, food and budget breakdown in 30 seconds.', color: '#8B5CF6', delay: 0.1 },
+              { icon: MessageCircle, title: 'Group Chat', body: 'Real-time chat for your trip group. Share photos, locations and plans.', color: B.orng, delay: 0.15 },
+              { icon: CreditCard, title: 'Split Expenses', body: 'Track shared costs, split bills fairly and settle up in one tap.', color: '#EC4899', delay: 0.2 },
+              { icon: Star, title: 'Reviews', body: 'Rate companions after every trip. Build a reputation for better groups.', color: '#FBBF24', delay: 0.25 },
+              { icon: Heart, title: 'Girls-Only Trips', body: 'Verified women-only trips with extra safety layers and moderation.', color: '#F43F5E', delay: 0.3 },
+              { icon: AlertTriangle, title: 'Emergency SOS', body: 'One tap sends your live location to contacts and our safety team.', color: '#EF4444', delay: 0.35 },
             ].map(({ icon: Icon, title, body, color, delay }) => (
-              <div key={title} style={{ ...reveal(s3.v, delay), borderRadius: 16, border: '1px solid #f0f2f5', padding: '1rem' }}
-                className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default sm:p-6">
+              <div key={title} style={{ ...reveal(s3.v, delay), borderRadius: 16, border: '1px solid #f0f2f5' }}
+                className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default p-3 sm:p-5">
                 <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 transition-all duration-300 group-hover:scale-110"
                   style={{ background: `${color}12` }}>
                   <Icon className="w-4 h-4 sm:w-5 sm:h-5" style={{ color }} />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-1.5 sm:mb-2 text-sm sm:text-base">{title}</h3>
-                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">{body}</p>
+                <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-xs sm:text-base leading-tight">{title}</h3>
+                <p className="text-gray-500 text-xs leading-relaxed hidden sm:block">{body}</p>
               </div>
             ))}
           </div>
@@ -479,14 +479,14 @@ export default function LandingPage() {
               <p className="text-lg leading-relaxed mb-8" style={{ color: 'rgba(255,255,255,0.6)' }}>
                 Tell us your destination, budget, and travel style. Our AI generates a complete itinerary — hotels, restaurants, activities, and local tips — in under 30 seconds.
               </p>
-              <div className="space-y-4 mb-8">
+              <div className="space-y-3 mb-8">
                 {[
                   { icon: Bot, label: 'Day-by-day itinerary', sub: 'Personalised for your travel style' },
                   { icon: Globe, label: 'Hotel & restaurant picks', sub: 'Budget-matched recommendations' },
                   { icon: Wallet, label: 'Full budget breakdown', sub: 'Transport, food, activities, stays' },
                   { icon: Camera, label: 'Local insider tips', sub: 'Hidden gems beyond the tourist trail' },
                 ].map(({ icon: Icon, label, sub }) => (
-                  <div key={label} className="flex items-center gap-4 p-4 rounded-2xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
+                  <div key={label} className="flex items-center gap-3 p-3 sm:p-4 rounded-2xl" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: `${B.green}20` }}>
                       <Icon className="w-5 h-5" style={{ color: B.green }} />
                     </div>
@@ -604,16 +604,16 @@ export default function LandingPage() {
       <section style={{ background: '#F8FAFC' }} className="py-16 md:py-24 px-5 sm:px-8">
         <div ref={s6.ref} className="max-w-6xl mx-auto">
           {/* Stats */}
-          <div style={reveal(s6.v)} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+          <div style={reveal(s6.v)} className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-12 sm:mb-20">
             {[
               { val: '10K+', label: 'Verified Members', color: B.blue },
               { val: '500+', label: 'Trips Completed', color: B.green },
               { val: '4.9★', label: 'Avg Trust Score', color: '#FBBF24' },
               { val: '0',   label: 'Safety Incidents', color: '#EF4444' },
             ].map(({ val, label, color }) => (
-              <div key={label} className="text-center p-6 rounded-3xl" style={{ background: '#fff', border: '1px solid #f0f2f5' }}>
-                <p className="font-extrabold text-4xl mb-1" style={{ color }}>{val}</p>
-                <p className="text-gray-500 text-sm font-medium">{label}</p>
+              <div key={label} className="text-center p-4 sm:p-6 rounded-2xl sm:rounded-3xl" style={{ background: '#fff', border: '1px solid #f0f2f5' }}>
+                <p className="font-extrabold text-2xl sm:text-4xl mb-1" style={{ color }}>{val}</p>
+                <p className="text-gray-500 text-xs sm:text-sm font-medium">{label}</p>
               </div>
             ))}
           </div>
@@ -622,14 +622,14 @@ export default function LandingPage() {
             <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: B.blue }}>Community</p>
             <h2 className="font-extrabold text-3xl md:text-4xl" style={{ color: B.dark }}>What travellers are saying</h2>
           </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="flex gap-4 overflow-x-auto pb-3 -mx-5 px-5 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 md:grid-cols-3 sm:gap-6 sm:overflow-visible sm:pb-0" style={{ scrollSnapType: 'x mandatory' }}>
             {[
               { name: 'Priya Sharma', location: 'Pune → Goa', avatar: 'PS', text: "JoinUp's verification made me feel completely safe. The girls-only Goa trip was the best experience of my life!", rating: 5, delay: 0 },
-              { name: 'Rohan Mehta', location: 'Mumbai → Manali', avatar: 'RM', text: 'The AI planner saved me hours of research. Within 2 minutes I had a full Manali itinerary that was better than anything I could have planned myself. Incredible.', rating: 5, delay: 0.1 },
-              { name: 'Ananya Patel', location: 'Bangalore → Rishikesh', avatar: 'AP', text: "Met three amazing people on a Rishikesh rafting trip. We're planning our second JoinUp trip together now. This platform completely changed how I travel.", rating: 5, delay: 0.2 },
+              { name: 'Rohan Mehta', location: 'Mumbai → Manali', avatar: 'RM', text: 'The AI planner saved me hours of research. Within 2 minutes I had a full Manali itinerary that was better than anything I could have planned myself.', rating: 5, delay: 0.1 },
+              { name: 'Ananya Patel', location: 'Bangalore → Rishikesh', avatar: 'AP', text: "Met three amazing people on a Rishikesh rafting trip. We're planning our second JoinUp trip together now. This platform changed how I travel.", rating: 5, delay: 0.2 },
             ].map(({ name, location, avatar, text, rating, delay }) => (
-              <div key={name} style={{ ...reveal(s6.v, delay), background: '#fff', border: '1px solid #f0f2f5', borderRadius: 24, padding: '1.75rem' }}
-                className="hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+              <div key={name} style={{ ...reveal(s6.v, delay), background: '#fff', border: '1px solid #f0f2f5', borderRadius: 24, padding: '1.5rem', scrollSnapAlign: 'start', minWidth: '75vw' }}
+                className="sm:min-w-0 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex-shrink-0 sm:flex-shrink">
                 <div className="flex gap-1 mb-4">
                   {Array(rating).fill(0).map((_, i) => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
                 </div>
