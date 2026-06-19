@@ -1,0 +1,222 @@
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 4.4s
+ ○ Compiling /trips ...
+ ✓ Compiled /trips in 8.3s (1008 modules)
+(node:9468) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+ GET /trips 200 in 8890ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /auth/login in 7.2s (1002 modules)
+ ✓ Compiled in 899ms (450 modules)
+ GET /manifest.json 404 in 8517ms
+ ○ Compiling / ...
+ ✓ Compiled / in 699ms (1071 modules)
+ GET / 200 in 949ms
+ GET / 200 in 86ms
+ GET /auth/login 200 in 144ms
+ ○ Compiling /auth/register ...
+ ✓ Compiled /auth/register in 693ms (1079 modules)
+ GET /auth/register 200 in 812ms
+ GET / 200 in 136ms
+ GET /manifest.json 404 in 56ms
+ GET /manifest.json 404 in 71ms
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1591951425328-48c78ec28a97?w=400&q=80 404
+ ○ Compiling /trips/create ...
+ ✓ Compiled /trips/create in 1696ms (1074 modules)
+ GET /trips/create 200 in 282ms
+ GET /manifest.json 404 in 53ms
+ GET /manifest.json 404 in 42ms
+ ✓ Compiled /trips in 314ms (629 modules)
+ GET /trips 200 in 495ms
+ GET /manifest.json 404 in 43ms
+ GET /manifest.json 404 in 47ms
+ ○ Compiling /chat ...
+ ✓ Compiled /trips/my-trips in 2.3s (1103 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 889ms (1086 modules)
+ GET /notifications 404 in 179ms
+ GET /manifest.json 404 in 43ms
+ GET /manifest.json 404 in 44ms
+ GET /chat 200 in 180ms
+ GET /manifest.json 404 in 46ms
+ GET /manifest.json 404 in 82ms
+ GET /notifications 404 in 43ms
+ GET /manifest.json 404 in 50ms
+ GET /manifest.json 404 in 62ms
+ ✓ Compiled /trips in 393ms (634 modules)
+ GET / 200 in 333ms
+ GET /manifest.json 404 in 69ms
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1591951425328-48c78ec28a97?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1591951425328-48c78ec28a97?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1591951425328-48c78ec28a97?w=400&q=80 404
+ GET / 200 in 79ms
+ GET /manifest.json 404 in 46ms
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1591951425328-48c78ec28a97?w=400&q=80 404
+ GET / 200 in 50ms
+ GET /manifest.json 404 in 26ms
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1684ms (1341 modules)
+ GET / 404 in 1792ms
+ GET / 200 in 130ms
+ GET /_next/static/css/app/layout.css?v=1781829469254 404 in 32ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 51ms
+ GET /_next/static/chunks/main-app.js?v=1781829469254 404 in 53ms
+ GET /_next/static/chunks/app/page.js 404 in 51ms
+ GET /manifest.json 404 in 40ms
+ GET /manifest.json 404 in 27ms
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1591951425328-48c78ec28a97?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ GET / 200 in 61ms
+ GET /_next/static/css/app/layout.css?v=1781829476049 404 in 30ms
+ GET /_next/static/chunks/main-app.js?v=1781829476049 404 in 62ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 61ms
+ GET /_next/static/chunks/app/page.js 404 in 66ms
+ GET /manifest.json 404 in 61ms
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1591951425328-48c78ec28a97?w=400&q=80 404
+ GET / 200 in 70ms
+ GET /_next/static/css/app/layout.css?v=1781829489236 404 in 43ms
+ GET /manifest.json 404 in 58ms
+ GET /_next/static/chunks/main-app.js?v=1781829489236 404 in 58ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 59ms
+ GET /_next/static/chunks/app/page.js 404 in 58ms
+ GET /manifest.json 404 in 38ms
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1591951425328-48c78ec28a97?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ GET / 200 in 52ms
+ GET /_next/static/css/app/layout.css?v=1781829492384 404 in 33ms
+ GET /_next/static/chunks/main-app.js?v=1781829492384 404 in 47ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 47ms
+ GET /_next/static/chunks/app/page.js 404 in 47ms
+ GET /manifest.json 404 in 45ms
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1591951425328-48c78ec28a97?w=400&q=80 404
+ GET /manifest.json 404 in 77ms
+ GET / 200 in 45ms
+ GET /_next/static/css/app/layout.css?v=1781829496656 404 in 18ms
+ GET /_next/static/chunks/main-app.js?v=1781829496656 404 in 31ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 29ms
+ GET /_next/static/chunks/app/page.js 404 in 17ms
+ GET /manifest.json 404 in 28ms
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1591951425328-48c78ec28a97?w=400&q=80 404
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'D:\joinup\frontend\.next\server\app'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../../../../frontend/.next/server/app/_not-found/page' in D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'D:\joinup\frontend\.next\server\app\_not-found\page.js', but to 'Error: Can't resolve '../../../../../../../frontend/.next/server/app/_not-found/page' in 'D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../../../../frontend/.next/server/app/_not-found/page (expected D:\joinup\frontend\.next\server\app\_not-found\page.js)
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\entries.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\entries.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack-config.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack-config.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../../../../frontend/.next/server/app/page' in D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'D:\joinup\frontend\.next\server\app\page.js', but to 'Error: Can't resolve '../../../../../../../frontend/.next/server/app/page' in 'D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../../../../frontend/.next/server/app/page (expected D:\joinup\frontend\.next\server\app\page.js)
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\entries.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\entries.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\plugins\next-types-plugin\index.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack-config.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack-config.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'D:\joinup\frontend\.next\server\app'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../../../../frontend/.next/server/app/_not-found/page' in D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'D:\joinup\frontend\.next\server\app\_not-found\page.js', but to 'Error: Can't resolve '../../../../../../../frontend/.next/server/app/_not-found/page' in 'D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../../../../frontend/.next/server/app/_not-found/page (expected D:\joinup\frontend\.next\server\app\_not-found\page.js)
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\require.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\utils.js
+<w>  at file dependencies D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ GET / 200 in 76ms
+ GET /manifest.json 404 in 66ms
+ GET /manifest.json 404 in 33ms
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1591951425328-48c78ec28a97?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ GET /auth/login 404 in 223ms
+ GET /auth/login 404 in 230ms
+ GET /auth/login 404 in 220ms
+ GET /auth/login 404 in 231ms
+ GET /auth/login 404 in 221ms
+ GET /auth/login 404 in 224ms
+ GET /auth/login 404 in 232ms
+ GET /auth/login 404 in 219ms
+ GET /auth/login 404 in 225ms
+ GET /auth/login 404 in 230ms
+ GET /auth/login 404 in 219ms
+ GET /auth/login 404 in 233ms
+ GET /auth/login 404 in 221ms
+ GET /auth/login 404 in 218ms
+ GET /auth/login 404 in 217ms
+ GET /auth/login 404 in 217ms
+ GET /auth/login 404 in 219ms
+ GET /auth/login 404 in 220ms
+ GET /auth/login 404 in 218ms
+ GET /auth/login 404 in 220ms
+ GET /auth/login 404 in 218ms
+ GET /auth/login 404 in 219ms
+ GET /auth/login 404 in 220ms
+ GET /auth/login 404 in 221ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'clientModules')
+    at D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:40:25679
+    at D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\trace\tracer.js:191:62
+    at D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\trace\tracer.js:140:36
+    at NoopContextManager.with (D:\joinup\node_modules\.pnpm\@opentelemetry+api@1.9.1\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (D:\joinup\node_modules\.pnpm\@opentelemetry+api@1.9.1\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NoopTracer.startActiveSpan (D:\joinup\node_modules\.pnpm\@opentelemetry+api@1.9.1\node_modules\@opentelemetry\api\build\src\trace\NoopTracer.js:54:31)
+    at ProxyTracer.startActiveSpan (D:\joinup\node_modules\.pnpm\@opentelemetry+api@1.9.1\node_modules\@opentelemetry\api\build\src\trace\ProxyTracer.js:27:24)
+    at D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\trace\tracer.js:122:103
+    at NoopContextManager.with (D:\joinup\node_modules\.pnpm\@opentelemetry+api@1.9.1\node_modules\@opentelemetry\api\build\src\context\NoopContextManager.js:14:19)
+    at ContextAPI.with (D:\joinup\node_modules\.pnpm\@opentelemetry+api@1.9.1\node_modules\@opentelemetry\api\build\src\api\context.js:51:46)
+    at NextTracerImpl.trace (D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\trace\tracer.js:122:28)
+    at D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\trace\tracer.js:191:31
+    at ne (D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\compiled\next-server\app-page.runtime.dev.js:42:1678)
+    at async doRender (D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:1427:30)
+    at async cacheEntry.responseCache.get.routeKind (D:\joinup\node_modules\.pnpm\next@14.2.35_@opentelemetry+api@1.9.1_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:1588:28) {
+  page: '/auth/login'
+}
+ GET /auth/login 500 in 229ms
+ GET /auth/login 200 in 79ms
+ GET /auth/login 200 in 52ms
+ GET /manifest.json 404 in 14ms
+ GET /manifest.json 404 in 34ms
+ GET / 200 in 41ms
+ GET /manifest.json 404 in 41ms
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1602301878688-72303a3e3d30?w=400&q=80 404
+ ⨯ upstream image response failed for https://images.unsplash.com/photo-1591951425328-48c78ec28a97?w=400&q=80 404

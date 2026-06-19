@@ -1,0 +1,391 @@
+// JoinUp Travel - Prisma Schema
+// Database: PostgreSQL (Supabase)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum UserRole {
+  USER
+  ADMIN
+  MODERATOR
+}
+
+enum VerificationStatus {
+  UNVERIFIED
+  EMAIL_VERIFIED
+  PHONE_VERIFIED
+  ID_VERIFIED
+  FULLY_VERIFIED
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  NON_BINARY
+  PREFER_NOT_TO_SAY
+}
+
+enum BudgetRange {
+  BUDGET
+  MID_RANGE
+  LUXURY
+  ULTRA_LUXURY
+}
+
+enum TripStatus {
+  DRAFT
+  OPEN
+  FULL
+  ONGOING
+  COMPLETED
+  CANCELLED
+}
+
+enum TripType {
+  ADVENTURE
+  LEISURE
+  CULTURAL
+  BUSINESS
+  PILGRIMAGE
+  ROAD_TRIP
+  BACKPACKING
+}
+
+enum GenderPreference {
+  ANY
+  MALE_ONLY
+  FEMALE_ONLY
+  MIXED
+}
+
+enum MemberStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  LEFT
+}
+
+enum MessageType {
+  TEXT
+  IMAGE
+  SYSTEM
+}
+
+enum ReportReason {
+  SPAM
+  HARASSMENT
+  FAKE_PROFILE
+  INAPPROPRIATE_CONTENT
+  SCAM
+  OTHER
+}
+
+enum ReportStatus {
+  PENDING
+  REVIEWED
+  RESOLVED
+  DISMISSED
+}
+
+enum NotificationType {
+  TRIP_REQUEST
+  REQUEST_APPROVED
+  REQUEST_REJECTED
+  NEW_MESSAGE
+  TRIP_UPDATE
+  REVIEW_RECEIVED
+  SOS_ALERT
+}
+
+enum AuthProvider {
+  EMAIL
+  GOOGLE
+  PHONE
+}
+
+// ─── Models ───────────────────────────────────────────────────────────────────
+
+model User {
+  id                 String             @id @default(uuid())
+  email              String?            @unique
+  phone              String?            @unique
+  password           String?
+  googleId           String?            @unique
+  provider           AuthProvider       @default(EMAIL)
+  firstName          String
+  lastName           String
+  avatar             String?
+  bio                String?            @db.Text
+  age                Int?
+  gender             Gender?
+  role               UserRole           @default(USER)
+  verificationStatus VerificationStatus @default(UNVERIFIED)
+  trustScore         Float              @default(0)
+  isActive           Boolean            @default(true)
+  isBlocked          Boolean            @default(false)
+  fcmToken           String?
+  travelInterests    String[]
+  languagesSpoken    String[]
+  budgetPreference   BudgetRange?
+  emailVerified      Boolean            @default(false)
+  phoneVerified      Boolean            @default(false)
+  idVerified         Boolean            @default(false)
+  selfieVerified     Boolean            @default(false)
+  idDocumentUrl      String?
+  selfieUrl          String?
+  lastSeen           DateTime?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+
+  // Relations
+  tripsOrganized    Trip[]            @relation("TripOrganizer")
+  tripMemberships   TripMember[]
+  messagesSent      Message[]
+  reviewsGiven      Review[]          @relation("ReviewGiver")
+  reviewsReceived   Review[]          @relation("ReviewReceiver")
+  reportsGiven      UserReport[]      @relation("ReportGiver")
+  reportsReceived   UserReport[]      @relation("ReportReceiver")
+  emergencyContacts EmergencyContact[]
+  notifications     Notification[]
+  blockedUsers      UserBlock[]       @relation("Blocker")
+  blockedBy         UserBlock[]       @relation("Blocked")
+  conversations     ConversationParticipant[]
+  sosAlerts         SOSAlert[]
+  refreshTokens     RefreshToken[]
+  otpCodes          OTPCode[]
+  aiPlans           AITravelPlan[]
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@map("refresh_tokens")
+}
+
+model OTPCode {
+  id        String   @id @default(uuid())
+  code      String
+  phone     String?
+  email     String?
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("otp_codes")
+}
+
+model Trip {
+  id                String           @id @default(uuid())
+  title             String
+  description       String           @db.Text
+  destination       String
+  originCity        String           @default("Pune")
+  coverImage        String?
+  images            String[]
+  startDate         DateTime
+  endDate           DateTime
+  budget            Float
+  budgetRange       BudgetRange
+  tripType          TripType
+  maxMembers        Int              @default(10)
+  currentMembers    Int              @default(1)
+  status            TripStatus       @default(OPEN)
+  genderPreference  GenderPreference @default(ANY)
+  meetingPoint      String?
+  meetingPointLat   Float?
+  meetingPointLng   Float?
+  destinationLat    Float?
+  destinationLng    Float?
+  tags              String[]
+  isPublic          Boolean          @default(true)
+  organizerId       String
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+
+  // Relations
+  organizer    User           @relation("TripOrganizer", fields: [organizerId], references: [id])
+  members      TripMember[]
+  conversation Conversation?
+  reviews      Review[]
+
+  @@map("trips")
+}
+
+model TripMember {
+  id       String       @id @default(uuid())
+  userId   String
+  tripId   String
+  status   MemberStatus @default(PENDING)
+  message  String?
+  joinedAt DateTime     @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  trip Trip @relation(fields: [tripId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, tripId])
+  @@map("trip_members")
+}
+
+model Conversation {
+  id        String   @id @default(uuid())
+  tripId    String?  @unique
+  isGroup   Boolean  @default(false)
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  trip         Trip?                    @relation(fields: [tripId], references: [id])
+  participants ConversationParticipant[]
+  messages     Message[]
+
+  @@map("conversations")
+}
+
+model ConversationParticipant {
+  id             String    @id @default(uuid())
+  conversationId String
+  userId         String
+  joinedAt       DateTime  @default(now())
+  lastReadAt     DateTime?
+
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([conversationId, userId])
+  @@map("conversation_participants")
+}
+
+model Message {
+  id             String      @id @default(uuid())
+  content        String      @db.Text
+  type           MessageType @default(TEXT)
+  senderId       String
+  conversationId String
+  readBy         String[]
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  sender       User         @relation(fields: [senderId], references: [id])
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@map("messages")
+}
+
+model Review {
+  id         String   @id @default(uuid())
+  rating     Int
+  comment    String   @db.Text
+  reviewerId String
+  revieweeId String
+  tripId     String
+  createdAt  DateTime @default(now())
+
+  reviewer User @relation("ReviewGiver", fields: [reviewerId], references: [id])
+  reviewee User @relation("ReviewReceiver", fields: [revieweeId], references: [id])
+  trip     Trip @relation(fields: [tripId], references: [id])
+
+  @@unique([reviewerId, revieweeId, tripId])
+  @@map("reviews")
+}
+
+model EmergencyContact {
+  id           String @id @default(uuid())
+  name         String
+  phone        String
+  relationship String
+  userId       String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("emergency_contacts")
+}
+
+model UserReport {
+  id             String       @id @default(uuid())
+  reporterId     String
+  reportedUserId String
+  reason         ReportReason
+  description    String?      @db.Text
+  status         ReportStatus @default(PENDING)
+  createdAt      DateTime     @default(now())
+
+  reporter     User @relation("ReportGiver", fields: [reporterId], references: [id])
+  reportedUser User @relation("ReportReceiver", fields: [reportedUserId], references: [id])
+
+  @@map("user_reports")
+}
+
+model UserBlock {
+  id        String   @id @default(uuid())
+  blockerId String
+  blockedId String
+  createdAt DateTime @default(now())
+
+  blocker User @relation("Blocker", fields: [blockerId], references: [id])
+  blocked User @relation("Blocked", fields: [blockedId], references: [id])
+
+  @@unique([blockerId, blockedId])
+  @@map("user_blocks")
+}
+
+model Notification {
+  id        String           @id @default(uuid())
+  type      NotificationType
+  title     String
+  body      String
+  data      Json?
+  userId    String
+  isRead    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
+
+model SOSAlert {
+  id         String   @id @default(uuid())
+  userId     String
+  tripId     String?
+  latitude   Float
+  longitude  Float
+  message    String?
+  isResolved Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("sos_alerts")
+}
+
+model AITravelPlan {
+  id          String   @id @default(uuid())
+  userId      String
+  destination String
+  days        Int
+  budget      Float
+  input       Json
+  itinerary   Json
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("ai_travel_plans")
+}
