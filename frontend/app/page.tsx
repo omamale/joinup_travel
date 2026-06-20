@@ -276,35 +276,17 @@ export default function LandingPage() {
           <source src="https://videos.pexels.com/video-files/6774799/6774799-hd_1920_1080_25fps.mp4" type="video/mp4" />
         </video>
 
-        {/* ── Mobile: cinematic night bonfire — group of friends ── */}
-        {/*
-          Best free campfire-group photos tried in order:
-          1. Pexels 1209177  — people sitting around a large bonfire, warm glow, night
-          2. Pexels 1533720  — friends at campfire, forest backdrop
-          3. Unsplash fallback — classic campfire-group shot
-          CSS object-position keeps fire + faces in the center-safe zone
-        */}
-        <picture className="md:hidden absolute inset-0 w-full h-full" style={{ display: 'block' }}>
-          <source
-            srcSet="https://images.pexels.com/photos/1209177/pexels-photo-1209177.jpeg?auto=compress&cs=tinysrgb&w=750&h=1400&fit=crop"
-            media="(max-width: 767px)"
-            type="image/jpeg"
-          />
-          <source
-            srcSet="https://images.pexels.com/photos/1533720/pexels-photo-1533720.jpeg?auto=compress&cs=tinysrgb&w=750&h=1400&fit=crop"
-            media="(max-width: 767px)"
-            type="image/jpeg"
-          />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=750&h=1400&fit=crop&crop=entropy&q=92"
-            alt="Group of friends talking around a bonfire at night"
-            loading="eager"
-            decoding="async"
-            className="w-full h-full object-cover"
-            style={{ objectPosition: 'center 35%' }}
-          />
-        </picture>
+        {/* ── Mobile hero background ── */}
+        {/* TO CHANGE THIS IMAGE: replace the src URL below with any Unsplash/Pexels photo link */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.pexels.com/photos/2666598/pexels-photo-2666598.jpeg?auto=compress&cs=tinysrgb&w=750&h=1400&fit=crop"
+          alt="Group of friends around a bonfire by the riverside at night"
+          loading="eager"
+          decoding="async"
+          className="md:hidden absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: 'center 30%' }}
+        />
 
         {/* ── Desktop gradient ── */}
         <div className="hidden md:block absolute inset-0 pointer-events-none"
