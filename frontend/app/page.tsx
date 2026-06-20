@@ -506,7 +506,7 @@ export default function LandingPage() {
                   <Icon className="w-4 h-4 sm:w-6 sm:h-6" style={{ color }} />
                 </div>
                 <h3 className="font-bold text-white mb-1 text-xs sm:text-sm">{title}</h3>
-                <p className="text-xs leading-relaxed hidden sm:block" style={{ color: 'rgba(255,255,255,0.55)' }}>{body}</p>
+                <p className="text-xs leading-relaxed mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>{body}</p>
               </div>
             ))}
           </div>
