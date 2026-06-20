@@ -300,13 +300,11 @@ export default function LandingPage() {
         {/* ── Mobile spacer — reserves top 44% for the photo/faces ── */}
         <div className="md:hidden shrink-0" style={{ height: '44vh' }} aria-hidden />
 
-        {/* ── Content: floats to bottom on mobile, centered on desktop ── */}
+        {/* ── Content: text on left, phone floats right on desktop ── */}
         <div className="relative z-10 flex-1 flex items-end md:items-center">
-          <div className="max-w-6xl mx-auto px-5 sm:px-8 w-full
-            pb-10 md:pb-44 md:pt-28
-            grid lg:grid-cols-2 gap-5 md:gap-10 items-center">
+          <div className="max-w-6xl mx-auto px-5 sm:px-8 w-full pb-10 md:pb-44 md:pt-28">
+            <div className="lg:max-w-[54%]">
 
-            <div>
               {/* 1. Launch badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-3 md:mb-6 text-xs font-semibold text-white"
                 style={{ background: 'rgba(43,182,115,0.2)', border: '1px solid rgba(43,182,115,0.45)' }}>
@@ -356,13 +354,15 @@ export default function LandingPage() {
                   See How It Works
                 </a>
               </div>
-            </div>
 
-            {/* Phone mockup — large desktop only */}
-            <div className="hidden lg:flex items-center justify-center">
-              <PhoneMockup />
             </div>
           </div>
+        </div>
+
+        {/* ── Phone mockup: floats on right side of hero, desktop only ── */}
+        <div className="hidden lg:flex absolute right-10 xl:right-20 2xl:right-32 inset-y-0 z-20 items-center pointer-events-none"
+          style={{ paddingBottom: '80px', paddingTop: '80px' }}>
+          <PhoneMockup />
         </div>
 
         {/* Bottom stats bar — desktop only ── */}
