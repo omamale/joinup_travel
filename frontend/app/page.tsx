@@ -267,43 +267,35 @@ export default function LandingPage() {
       {/* ── HERO ── */}
       <section id="hero-section" className="relative flex flex-col overflow-hidden" style={{ minHeight: '100svh' }}>
 
-        {/* ── DESKTOP: friends around campfire at night — landscape crop ── */}
+        {/* ── DESKTOP: minimalist alpine lake reflection — landscape ── */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.pexels.com/photos/2666598/pexels-photo-2666598.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
-          alt="Friends around a bonfire at night"
+          src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1920&h=1080&fit=crop&crop=center&q=90"
+          alt="Scenic mountain lake travel destination"
           loading="eager"
           decoding="async"
           className="hidden md:block absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: 'center 40%' }}
+          style={{ objectPosition: 'center 55%' }}
         />
 
-        {/* ── MOBILE: same scene — portrait crop, faces & fire centred ── */}
+        {/* ── MOBILE: same photo — portrait crop ── */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.pexels.com/photos/2666598/pexels-photo-2666598.jpeg?auto=compress&cs=tinysrgb&w=750&h=1400&fit=crop"
-          alt="Friends around a bonfire at night"
+          src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=750&h=1400&fit=crop&crop=center&q=90"
+          alt="Scenic mountain lake travel destination"
           loading="eager"
           decoding="async"
           className="md:hidden absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: 'center 35%' }}
+          style={{ objectPosition: 'center 50%' }}
         />
 
-        {/* ── Shared: warm fire-glow radial (both devices) ── */}
+        {/* ── Elegant dark overlay for text readability ── */}
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 70% 45% at 50% 45%, rgba(255,110,10,0.18) 0%, rgba(180,50,0,0.08) 55%, transparent 80%)' }} />
+          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.55) 100%)' }} />
 
-        {/* ── Shared: cinematic vignette — dark edges pull focus to fire ── */}
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at 50% 42%, transparent 30%, rgba(0,0,0,0.55) 100%)' }} />
-
-        {/* ── Desktop: text-readability gradient ── */}
-        <div className="hidden md:block absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.28) 40%, rgba(0,0,0,0.68) 100%)' }} />
-
-        {/* ── Mobile: stronger bottom gradient for CTA area ── */}
+        {/* ── Mobile: stronger bottom fade for CTA readability ── */}
         <div className="md:hidden absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.06) 28%, rgba(0,0,0,0.75) 52%, rgba(0,0,0,0.97) 100%)' }} />
+          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.10) 0%, transparent 25%, rgba(0,0,0,0.65) 52%, rgba(0,0,0,0.95) 100%)' }} />
 
         {/* ── Mobile spacer — reserves top 44% for the photo/faces ── */}
         <div className="md:hidden shrink-0" style={{ height: '44vh' }} aria-hidden />
