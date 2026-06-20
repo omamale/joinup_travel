@@ -276,24 +276,24 @@ export default function LandingPage() {
           <source src="https://videos.pexels.com/video-files/6774799/6774799-hd_1920_1080_25fps.mp4" type="video/mp4" />
         </video>
 
-        {/* ── Mobile: portrait image — group trek, different from desktop ── */}
+        {/* ── Mobile: night bonfire — group of friends talking around a campfire ── */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=750&h=1400&fit=crop&crop=faces&q=92"
-          alt="Group of friends on a trip together"
+          src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=750&h=1400&fit=crop&crop=center&q=92"
+          alt="Group of friends talking around a campfire at night"
           loading="eager"
           decoding="async"
           className="md:hidden absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: 'center center' }}
+          style={{ objectPosition: 'center 40%' }}
         />
 
         {/* ── Desktop gradient overlay ── */}
         <div className="hidden md:block absolute inset-0 pointer-events-none"
           style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.72) 100%)' }} />
 
-        {/* ── Mobile gradient: open at top (people visible), dark at bottom (text readable) ── */}
+        {/* ── Mobile gradient: lets campfire glow show, darkens bottom for text ── */}
         <div className="md:hidden absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.12) 22%, rgba(0,0,0,0.78) 52%, rgba(0,0,0,0.97) 100%)' }} />
+          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.08) 30%, rgba(0,0,0,0.72) 52%, rgba(0,0,0,0.96) 100%)' }} />
 
         {/* ── Mobile spacer — reserves top 44% for the photo/faces ── */}
         <div className="md:hidden shrink-0" style={{ height: '44vh' }} aria-hidden />
