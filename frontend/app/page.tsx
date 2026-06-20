@@ -363,8 +363,7 @@ export default function LandingPage() {
           </div>
 
           {/* Group-first policy */}
-          <div style={reveal(s3.v, 0.5)} className="rounded-2xl p-5 sm:p-6 text-center"
-            style={{ background: `${B.green}15`, border: `1px solid ${B.green}35` }}>
+          <div style={{ ...reveal(s3.v, 0.5), background: `${B.green}15`, border: `1px solid ${B.green}35` }} className="rounded-2xl p-5 sm:p-6 text-center">
             <Shield className="w-8 h-8 mx-auto mb-3" style={{ color: B.green }} />
             <p className="font-bold text-white text-base sm:text-lg mb-2">Our Group-First Policy</p>
             <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.7)' }}>
