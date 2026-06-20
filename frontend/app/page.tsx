@@ -388,9 +388,8 @@ export default function LandingPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
             {PUNE_TRIPS.map(({ from, to, duration, budget, type, img, color }, i) => (
-              <div key={to} style={reveal(s4.v, i * 0.1)}
-                className="rounded-3xl overflow-hidden group hover:-translate-y-1 transition-all duration-300 hover:shadow-2xl"
-                style={{ border: '1px solid #f0f2f5' }}>
+              <div key={to} style={{ ...reveal(s4.v, i * 0.1), border: '1px solid #f0f2f5' }}
+                className="rounded-3xl overflow-hidden group hover:-translate-y-1 transition-all duration-300 hover:shadow-2xl">
                 <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={`https://images.unsplash.com/${img}?w=600&q=80`} alt={to}
