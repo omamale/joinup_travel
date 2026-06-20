@@ -270,7 +270,7 @@ export default function LandingPage() {
         {/* ── DESKTOP: minimalist alpine lake reflection — landscape ── */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1920&h=1080&fit=crop&crop=center&q=90"
+          src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&h=1080&fit=crop&crop=center&q=90"
           alt="Scenic mountain lake travel destination"
           loading="eager"
           decoding="async"
@@ -281,7 +281,7 @@ export default function LandingPage() {
         {/* ── MOBILE: same photo — portrait crop ── */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=750&h=1400&fit=crop&crop=center&q=90"
+          src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=750&h=1400&fit=crop&crop=center&q=90"
           alt="Scenic mountain lake travel destination"
           loading="eager"
           decoding="async"
@@ -289,13 +289,13 @@ export default function LandingPage() {
           style={{ objectPosition: 'center 50%' }}
         />
 
-        {/* ── Elegant dark overlay for text readability ── */}
+        {/* ── Light overlay — photo is naturally dark, just soften edges ── */}
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.55) 100%)' }} />
+          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.40) 100%)' }} />
 
-        {/* ── Mobile: stronger bottom fade for CTA readability ── */}
+        {/* ── Mobile: fade bottom for CTA text ── */}
         <div className="md:hidden absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.10) 0%, transparent 25%, rgba(0,0,0,0.65) 52%, rgba(0,0,0,0.95) 100%)' }} />
+          style={{ background: 'linear-gradient(180deg, transparent 0%, transparent 30%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.90) 100%)' }} />
 
         {/* ── Mobile spacer — reserves top 44% for the photo/faces ── */}
         <div className="md:hidden shrink-0" style={{ height: '44vh' }} aria-hidden />
