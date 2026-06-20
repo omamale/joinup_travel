@@ -270,19 +270,19 @@ export default function LandingPage() {
         {/* ── DESKTOP: friends around campfire at night — landscape crop ── */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.pexels.com/photos/1209177/pexels-photo-1209177.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
-          alt="Group of friends around a campfire at night"
+          src="https://images.pexels.com/photos/2666598/pexels-photo-2666598.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+          alt="Friends around a bonfire at night"
           loading="eager"
           decoding="async"
           className="hidden md:block absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: 'center 42%' }}
+          style={{ objectPosition: 'center 40%' }}
         />
 
         {/* ── MOBILE: same scene — portrait crop, faces & fire centred ── */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.pexels.com/photos/1209177/pexels-photo-1209177.jpeg?auto=compress&cs=tinysrgb&w=750&h=1400&fit=crop"
-          alt="Group of friends around a campfire at night"
+          src="https://images.pexels.com/photos/2666598/pexels-photo-2666598.jpeg?auto=compress&cs=tinysrgb&w=750&h=1400&fit=crop"
+          alt="Friends around a bonfire at night"
           loading="eager"
           decoding="async"
           className="md:hidden absolute inset-0 w-full h-full object-cover"
