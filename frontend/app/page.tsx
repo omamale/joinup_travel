@@ -265,74 +265,115 @@ export default function LandingPage() {
       </nav>
 
       {/* ── HERO ── */}
-      <section id="hero-section" className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: '100vh' }}>
+      <section id="hero-section" className="relative flex flex-col overflow-hidden" style={{ minHeight: '100svh' }}>
+
+        {/* ── Desktop: cinematic landscape video ── */}
         <video autoPlay muted loop playsInline
-          poster="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80"
-          className="absolute inset-0 w-full h-full object-cover">
+          poster="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=85"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover">
           <source src="https://videos.pexels.com/video-files/6774799/6774799-hd_1920_1080_25fps.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(5,13,26,0.72) 0%, rgba(5,13,26,0.62) 50%, rgba(5,13,26,0.88) 100%)' }} />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 w-full pt-28 pb-44 grid lg:grid-cols-2 gap-10 items-center">
-          {/* Left */}
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6 text-xs font-semibold text-white"
-              style={{ background: 'rgba(43,182,115,0.2)', border: '1px solid rgba(43,182,115,0.45)' }}>
-              <Rocket className="w-3.5 h-3.5" style={{ color: B.green }} />
-              Launching first in Pune
+        {/* ── Mobile: portrait image — faces front & center ── */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=750&h=1334&fit=crop&crop=faces&q=90"
+          alt="Group of friends on a road trip together"
+          loading="eager"
+          className="md:hidden absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: 'center 22%' }}
+        />
+
+        {/* ── Desktop gradient ── */}
+        <div className="hidden md:block absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(180deg, rgba(5,13,26,0.72) 0%, rgba(5,13,26,0.62) 50%, rgba(5,13,26,0.88) 100%)' }} />
+
+        {/* ── Mobile gradient: open at top (faces), closes toward bottom (text) ── */}
+        <div className="md:hidden absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(180deg, rgba(5,13,26,0.28) 0%, rgba(5,13,26,0.10) 22%, rgba(5,13,26,0.80) 52%, rgba(5,13,26,0.97) 100%)' }} />
+
+        {/* ── Mobile spacer — reserves top 44% for the photo/faces ── */}
+        <div className="md:hidden shrink-0" style={{ height: '44vh' }} aria-hidden />
+
+        {/* ── Content: floats to bottom on mobile, centered on desktop ── */}
+        <div className="relative z-10 flex-1 flex items-end md:items-center">
+          <div className="max-w-6xl mx-auto px-5 sm:px-8 w-full
+            pb-10 md:pb-44 md:pt-28
+            grid lg:grid-cols-2 gap-5 md:gap-10 items-center">
+
+            <div>
+              {/* 1. Launch badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-3 md:mb-6 text-xs font-semibold text-white"
+                style={{ background: 'rgba(43,182,115,0.2)', border: '1px solid rgba(43,182,115,0.45)' }}>
+                <Rocket className="w-3.5 h-3.5" style={{ color: B.green }} />
+                Launching first in Pune
+              </div>
+
+              {/* 2. Headline */}
+              <h1 className="font-extrabold text-white leading-[1.05] mb-2 md:mb-4"
+                style={{ fontSize: 'clamp(2.1rem, 9vw, 5rem)', letterSpacing: '-0.03em' }}>
+                Never Travel Alone.
+              </h1>
+
+              {/* 3. Subheadline */}
+              <p className="text-sm sm:text-base md:text-xl mb-4 md:mb-8 leading-relaxed"
+                style={{ color: 'rgba(255,255,255,0.82)', maxWidth: 480 }}>
+                Find verified travel companions, join safe group trips, and plan your journey with AI.
+              </p>
+
+              {/* 4. Trust badges — 2×2 grid on mobile, flex row on sm+ */}
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 mb-4 md:mb-8">
+                {[
+                  { icon: BadgeCheck, label: 'ID Verified' },
+                  { icon: Users,      label: 'Group-First' },
+                  { icon: Heart,      label: 'Women-Only'  },
+                  { icon: Sparkles,   label: 'AI Planning' },
+                ].map(({ icon: Icon, label }) => (
+                  <div key={label}
+                    className="flex items-center justify-center sm:justify-start gap-1.5 px-3 py-2 md:py-1.5 rounded-full text-xs font-semibold text-white"
+                    style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)' }}>
+                    <Icon className="w-3.5 h-3.5 shrink-0" style={{ color: B.green }} />
+                    {label}
+                  </div>
+                ))}
+              </div>
+
+              {/* 5+6. CTAs — full-width stacked on mobile, side-by-side on sm+ */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a href="#waitlist" onClick={() => track('cta_click', 'hero_join_waitlist')}
+                  className="flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl font-bold text-white text-base transition-all hover:scale-105 active:scale-95"
+                  style={{ background: `linear-gradient(135deg, ${B.blue}, #1E40AF)`, boxShadow: '0 8px 28px rgba(15,76,129,0.5)' }}>
+                  Join the Waitlist <ArrowRight className="w-5 h-5" />
+                </a>
+                <a href="#how-it-works" onClick={() => track('cta_click', 'hero_how_it_works')}
+                  className="flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl font-bold text-white text-base transition-all hover:bg-white/20 active:scale-95"
+                  style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.25)' }}>
+                  See How It Works
+                </a>
+              </div>
             </div>
-            <h1 className="font-extrabold text-white leading-[1.05] mb-4"
-              style={{ fontSize: 'clamp(2.4rem, 8vw, 5rem)', letterSpacing: '-0.03em' }}>
-              Never Travel Alone.
-            </h1>
-            <p className="text-lg sm:text-xl mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.78)', maxWidth: 480 }}>
-              Find verified travel companions, join safe group trips, and plan your journey with AI.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-start mb-8">
-              <a href="#waitlist" onClick={() => track('cta_click', 'hero_join_waitlist')}
-                className="flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl font-bold text-white text-base transition-all hover:scale-105 active:scale-95"
-                style={{ background: `linear-gradient(135deg, ${B.blue}, #1E40AF)`, boxShadow: '0 8px 28px rgba(15,76,129,0.5)' }}>
-                Join the Waitlist <ArrowRight className="w-5 h-5" />
-              </a>
-              <a href="#how-it-works" onClick={() => track('cta_click', 'hero_how_it_works')}
-                className="flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl font-bold text-white text-base transition-all hover:bg-white/20 active:scale-95"
-                style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.25)' }}>
-                See How It Works
-              </a>
+
+            {/* Phone mockup — large desktop only */}
+            <div className="hidden lg:flex items-center justify-center">
+              <PhoneMockup />
             </div>
-            <div className="flex flex-wrap gap-2">
-              {[
-                { icon: BadgeCheck, label: 'ID Verified' },
-                { icon: Users, label: 'Group-First Travel' },
-                { icon: Heart, label: 'Women-Only Trips' },
-                { icon: Sparkles, label: 'AI Trip Planning' },
-              ].map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-white"
-                  style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.18)' }}>
-                  <Icon className="w-3.5 h-3.5" style={{ color: B.green }} /> {label}
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* Right — Phone mockup */}
-          <div className="hidden lg:flex items-center justify-center">
-            <PhoneMockup />
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="absolute bottom-0 left-0 right-0 py-4 border-t" style={{ background: 'rgba(5,13,26,0.75)', borderColor: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(16px)' }}>
+        {/* Bottom stats bar — desktop only ── */}
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 py-4 border-t"
+          style={{ background: 'rgba(5,13,26,0.75)', borderColor: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(16px)' }}>
           <div className="max-w-6xl mx-auto px-5 flex flex-row items-center justify-around gap-2">
             {[
-              { icon: MapPin, label: 'Launching in Pune', color: B.orng },
-              { icon: Users, label: 'Join early access', color: B.green },
-              { icon: Shield, label: 'Verified-only platform', color: B.blue },
+              { icon: MapPin, label: 'Launching in Pune',      color: B.orng  },
+              { icon: Users,  label: 'Join early access',       color: B.green },
+              { icon: Shield, label: 'Verified-only platform',  color: B.blue  },
             ].map(({ icon: Icon, label, color }) => (
               <div key={label} className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: `${color}20` }}>
                   <Icon className="w-4 h-4" style={{ color }} />
                 </div>
-                <p className="text-xs sm:text-sm font-medium text-white/80 hidden sm:block">{label}</p>
+                <p className="text-sm font-medium text-white/80">{label}</p>
               </div>
             ))}
           </div>
