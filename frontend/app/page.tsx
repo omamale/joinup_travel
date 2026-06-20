@@ -270,8 +270,8 @@ export default function LandingPage() {
         {/* ── DESKTOP: minimalist alpine lake reflection — landscape ── */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&h=1080&fit=crop&crop=center&q=90"
-          alt="Scenic mountain lake travel destination"
+          src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=1920&h=1080&fit=crop&crop=faces&q=90"
+          alt="Group of friends enjoying a travel adventure"
           loading="eager"
           decoding="async"
           className="hidden md:block absolute inset-0 w-full h-full object-cover"
@@ -281,21 +281,21 @@ export default function LandingPage() {
         {/* ── MOBILE: same photo — portrait crop ── */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=750&h=1400&fit=crop&crop=center&q=90"
-          alt="Scenic mountain lake travel destination"
+          src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=750&h=1400&fit=crop&crop=faces&q=90"
+          alt="Group of friends enjoying a travel adventure"
           loading="eager"
           decoding="async"
           className="md:hidden absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: 'center 50%' }}
         />
 
-        {/* ── Light overlay — photo is naturally dark, just soften edges ── */}
+        {/* ── Dark cinematic overlay so white text is always readable ── */}
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.40) 100%)' }} />
+          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.30) 40%, rgba(0,0,0,0.60) 100%)' }} />
 
-        {/* ── Mobile: fade bottom for CTA text ── */}
+        {/* ── Mobile: stronger fade at bottom for CTA area ── */}
         <div className="md:hidden absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, transparent 0%, transparent 30%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.90) 100%)' }} />
+          style={{ background: 'linear-gradient(180deg, transparent 0%, transparent 28%, rgba(0,0,0,0.65) 52%, rgba(0,0,0,0.95) 100%)' }} />
 
         {/* ── Mobile spacer — reserves top 44% for the photo/faces ── */}
         <div className="md:hidden shrink-0" style={{ height: '44vh' }} aria-hidden />
