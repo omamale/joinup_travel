@@ -267,38 +267,25 @@ export default function LandingPage() {
       {/* ── HERO ── */}
       <section id="hero-section" className="relative flex flex-col overflow-hidden" style={{ minHeight: '100svh' }}>
 
-        {/* ── Desktop: 16:9 landscape — group of friends travelling ── */}
-        {/*
-          Primary: friends laughing and hanging out (Pexels 3044947)
-          Fallback: road-trip travel scene (Pexels 6774799)
-          Poster: shown instantly while video buffers
-        */}
+        {/* ── Desktop: 16:9 landscape video ── */}
         <video
           autoPlay muted loop playsInline
           poster="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=85"
           className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
         >
-          <source src="https://videos.pexels.com/video-files/3044947/3044947-hd_1920_1080_25fps.mp4" type="video/mp4" />
           <source src="https://videos.pexels.com/video-files/6774799/6774799-hd_1920_1080_25fps.mp4" type="video/mp4" />
         </video>
 
-        {/* ── Mobile: 9:16 portrait — faces front and centre ── */}
-        {/*
-          Primary: portrait group travel (Pexels 5609496 portrait)
-          Secondary: portrait version of friends scene (Pexels 3044947 portrait)
-          Fallback: landscape video with face-centred object-position
-          Poster: face-cropped group photo while video loads
-        */}
-        <video
-          autoPlay muted loop playsInline
-          poster="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=750&h=1334&fit=crop&crop=faces&q=90"
+        {/* ── Mobile: portrait image — group trek, different from desktop ── */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=750&h=1400&fit=crop&crop=faces&q=92"
+          alt="Group of friends on a trip together"
+          loading="eager"
+          decoding="async"
           className="md:hidden absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: 'center 22%' }}
-        >
-          <source src="https://videos.pexels.com/video-files/5609496/5609496-hd_1080_1920_25fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/3044947/3044947-hd_1080_1920_25fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/6774799/6774799-hd_1920_1080_25fps.mp4" type="video/mp4" />
-        </video>
+          style={{ objectPosition: 'center center' }}
+        />
 
         {/* ── Desktop gradient overlay ── */}
         <div className="hidden md:block absolute inset-0 pointer-events-none"
