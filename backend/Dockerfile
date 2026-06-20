@@ -1,45 +1,26 @@
-# Build stage
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-# Install pnpm
-RUN npm install -g pnpm
+COPY package.json ./
+RUN npm install
 
-# Copy workspace files
-COPY package.json pnpm-workspace.yaml ./
-COPY packages/ ./packages/
-COPY apps/backend/package.json ./apps/backend/
+COPY prisma/ ./prisma/
+COPY src/ ./src/
+COPY tsconfig.json ./
 
-# Install dependencies
-RUN pnpm install --frozen-lockfile
+RUN npx prisma generate
+RUN npm run build
 
-# Copy source
-COPY apps/backend/ ./apps/backend/
-
-# Generate Prisma client
-RUN pnpm --filter backend prisma generate
-
-# Build
-RUN pnpm --filter backend build
-
-# Production stage
 FROM node:20-alpine AS runner
 WORKDIR /app
 
-RUN npm install -g pnpm
+COPY package.json ./
+RUN npm install --omit=dev
 
-COPY package.json pnpm-workspace.yaml ./
-COPY packages/ ./packages/
-COPY apps/backend/package.json ./apps/backend/
-COPY apps/backend/prisma/ ./apps/backend/prisma/
-
-RUN pnpm install --frozen-lockfile --prod
-
-COPY --from=builder /app/apps/backend/dist ./apps/backend/dist
-COPY --from=builder /app/apps/backend/node_modules/.prisma ./apps/backend/node_modules/.prisma
-
-WORKDIR /app/apps/backend
+COPY prisma/ ./prisma/
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 
 EXPOSE 4000
 
-CMD ["node", "dist/main"]
+CMD ["sh", "-c", "npx prisma migrate deploy && node dist/main"]
