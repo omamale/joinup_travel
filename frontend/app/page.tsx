@@ -276,24 +276,51 @@ export default function LandingPage() {
           <source src="https://videos.pexels.com/video-files/6774799/6774799-hd_1920_1080_25fps.mp4" type="video/mp4" />
         </video>
 
-        {/* ── Mobile: night bonfire — group of friends talking around a campfire ── */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=750&h=1400&fit=crop&crop=center&q=92"
-          alt="Group of friends talking around a campfire at night"
-          loading="eager"
-          decoding="async"
-          className="md:hidden absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: 'center 40%' }}
-        />
+        {/* ── Mobile: cinematic night bonfire — group of friends ── */}
+        {/*
+          Best free campfire-group photos tried in order:
+          1. Pexels 1209177  — people sitting around a large bonfire, warm glow, night
+          2. Pexels 1533720  — friends at campfire, forest backdrop
+          3. Unsplash fallback — classic campfire-group shot
+          CSS object-position keeps fire + faces in the center-safe zone
+        */}
+        <picture className="md:hidden absolute inset-0 w-full h-full" style={{ display: 'block' }}>
+          <source
+            srcSet="https://images.pexels.com/photos/1209177/pexels-photo-1209177.jpeg?auto=compress&cs=tinysrgb&w=750&h=1400&fit=crop"
+            media="(max-width: 767px)"
+            type="image/jpeg"
+          />
+          <source
+            srcSet="https://images.pexels.com/photos/1533720/pexels-photo-1533720.jpeg?auto=compress&cs=tinysrgb&w=750&h=1400&fit=crop"
+            media="(max-width: 767px)"
+            type="image/jpeg"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=750&h=1400&fit=crop&crop=entropy&q=92"
+            alt="Group of friends talking around a bonfire at night"
+            loading="eager"
+            decoding="async"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center 35%' }}
+          />
+        </picture>
 
-        {/* ── Desktop gradient overlay ── */}
+        {/* ── Desktop gradient ── */}
         <div className="hidden md:block absolute inset-0 pointer-events-none"
           style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.72) 100%)' }} />
 
-        {/* ── Mobile gradient: lets campfire glow show, darkens bottom for text ── */}
+        {/* ── Mobile layer 1: warm fire glow — orange radial around the bonfire ── */}
         <div className="md:hidden absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.08) 30%, rgba(0,0,0,0.72) 52%, rgba(0,0,0,0.96) 100%)' }} />
+          style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 38%, rgba(255,110,10,0.22) 0%, rgba(200,55,0,0.10) 50%, transparent 78%)' }} />
+
+        {/* ── Mobile layer 2: cinematic vignette — dark edges, bright centre ── */}
+        <div className="md:hidden absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse at 50% 36%, transparent 28%, rgba(0,0,0,0.58) 100%)' }} />
+
+        {/* ── Mobile layer 3: text readability — transparent top, opaque bottom ── */}
+        <div className="md:hidden absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.06) 28%, rgba(0,0,0,0.72) 52%, rgba(0,0,0,0.97) 100%)' }} />
 
         {/* ── Mobile spacer — reserves top 44% for the photo/faces ── */}
         <div className="md:hidden shrink-0" style={{ height: '44vh' }} aria-hidden />
