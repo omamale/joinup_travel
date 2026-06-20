@@ -413,21 +413,22 @@ export default function LandingPage() {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
             {[
-              { icon: Shield, title: 'ID Verification', color: B.blue, delay: 0 },
-              { icon: TrendingUp, title: 'Trust Score', color: B.green, delay: 0.05 },
-              { icon: Bot, title: 'AI Planner', color: '#8B5CF6', delay: 0.1 },
-              { icon: MessageCircle, title: 'Group Chat', color: B.orng, delay: 0.15 },
-              { icon: CreditCard, title: 'Split Expenses', color: '#EC4899', delay: 0.2 },
-              { icon: Star, title: 'Reviews', color: '#FBBF24', delay: 0.25 },
-              { icon: Heart, title: 'Women-Only', color: '#F43F5E', delay: 0.3 },
-              { icon: AlertTriangle, title: 'Emergency SOS', color: '#EF4444', delay: 0.35 },
-            ].map(({ icon: Icon, title, color, delay }) => (
+              { icon: Shield, title: 'ID Verification', body: 'Every traveller is verified with a government-issued ID before joining any trip.', color: B.blue, delay: 0 },
+              { icon: TrendingUp, title: 'Trust Score', body: 'A dynamic score built from trip history, ratings, and profile completeness.', color: B.green, delay: 0.05 },
+              { icon: Bot, title: 'AI Planner', body: 'Get a full trip itinerary, budget breakdown, and hotel picks in 30 seconds.', color: '#8B5CF6', delay: 0.1 },
+              { icon: MessageCircle, title: 'Group Chat', body: 'Chat with your travel group before and during the trip in a safe space.', color: B.orng, delay: 0.15 },
+              { icon: CreditCard, title: 'Split Expenses', body: 'Track shared costs and split bills fairly with all your travel companions.', color: '#EC4899', delay: 0.2 },
+              { icon: Star, title: 'Reviews', body: 'Rate every traveller after the trip to keep the community trustworthy.', color: '#FBBF24', delay: 0.25 },
+              { icon: Heart, title: 'Women-Only', body: 'Dedicated trips for women with extra verification and 24/7 support.', color: '#F43F5E', delay: 0.3 },
+              { icon: AlertTriangle, title: 'Emergency SOS', body: 'One-tap SOS sends your live location to emergency contacts instantly.', color: '#EF4444', delay: 0.35 },
+            ].map(({ icon: Icon, title, body, color, delay }) => (
               <div key={title} style={{ ...reveal(s2.v, delay), borderRadius: 16, border: '1px solid rgba(255,255,255,0.07)' }}
-                className="group hover:border-white/20 transition-all duration-300 p-3 sm:p-5">
+                className="group hover:border-white/20 transition-all duration-300 p-4 sm:p-5">
                 <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ background: `${color}18` }}>
                   <Icon className="w-4 h-4 sm:w-5 sm:h-5" style={{ color }} />
                 </div>
-                <h3 className="font-bold text-white text-xs sm:text-base leading-tight">{title}</h3>
+                <h3 className="font-bold text-white text-sm sm:text-base leading-tight mb-1.5">{title}</h3>
+                <p className="text-xs sm:text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>{body}</p>
               </div>
             ))}
           </div>
