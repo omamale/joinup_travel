@@ -267,42 +267,43 @@ export default function LandingPage() {
       {/* ── HERO ── */}
       <section id="hero-section" className="relative flex flex-col overflow-hidden" style={{ minHeight: '100svh' }}>
 
-        {/* ── Desktop: 16:9 landscape video ── */}
-        <video
-          autoPlay muted loop playsInline
-          poster="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=85"
-          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
-        >
-          <source src="https://videos.pexels.com/video-files/6774799/6774799-hd_1920_1080_25fps.mp4" type="video/mp4" />
-        </video>
-
-        {/* ── Mobile hero background ── */}
-        {/* TO CHANGE THIS IMAGE: replace the src URL below with any Unsplash/Pexels photo link */}
+        {/* ── DESKTOP: friends around campfire at night — landscape crop ── */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.pexels.com/photos/2666598/pexels-photo-2666598.jpeg?auto=compress&cs=tinysrgb&w=750&h=1400&fit=crop"
-          alt="Group of friends around a bonfire by the riverside at night"
+          src="https://images.pexels.com/photos/1209177/pexels-photo-1209177.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+          alt="Group of friends around a campfire at night"
+          loading="eager"
+          decoding="async"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: 'center 42%' }}
+        />
+
+        {/* ── MOBILE: same scene — portrait crop, faces & fire centred ── */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.pexels.com/photos/1209177/pexels-photo-1209177.jpeg?auto=compress&cs=tinysrgb&w=750&h=1400&fit=crop"
+          alt="Group of friends around a campfire at night"
           loading="eager"
           decoding="async"
           className="md:hidden absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: 'center 30%' }}
+          style={{ objectPosition: 'center 35%' }}
         />
 
-        {/* ── Desktop gradient ── */}
+        {/* ── Shared: warm fire-glow radial (both devices) ── */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 70% 45% at 50% 45%, rgba(255,110,10,0.18) 0%, rgba(180,50,0,0.08) 55%, transparent 80%)' }} />
+
+        {/* ── Shared: cinematic vignette — dark edges pull focus to fire ── */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse at 50% 42%, transparent 30%, rgba(0,0,0,0.55) 100%)' }} />
+
+        {/* ── Desktop: text-readability gradient ── */}
         <div className="hidden md:block absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.72) 100%)' }} />
+          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.28) 40%, rgba(0,0,0,0.68) 100%)' }} />
 
-        {/* ── Mobile layer 1: warm fire glow — orange radial around the bonfire ── */}
+        {/* ── Mobile: stronger bottom gradient for CTA area ── */}
         <div className="md:hidden absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 38%, rgba(255,110,10,0.22) 0%, rgba(200,55,0,0.10) 50%, transparent 78%)' }} />
-
-        {/* ── Mobile layer 2: cinematic vignette — dark edges, bright centre ── */}
-        <div className="md:hidden absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at 50% 36%, transparent 28%, rgba(0,0,0,0.58) 100%)' }} />
-
-        {/* ── Mobile layer 3: text readability — transparent top, opaque bottom ── */}
-        <div className="md:hidden absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.06) 28%, rgba(0,0,0,0.72) 52%, rgba(0,0,0,0.97) 100%)' }} />
+          style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.06) 28%, rgba(0,0,0,0.75) 52%, rgba(0,0,0,0.97) 100%)' }} />
 
         {/* ── Mobile spacer — reserves top 44% for the photo/faces ── */}
         <div className="md:hidden shrink-0" style={{ height: '44vh' }} aria-hidden />
