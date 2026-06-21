@@ -19,9 +19,10 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden md:flex flex-col fixed left-0 top-16 bottom-0 w-64 bg-white border-r border-gray-100 z-30 py-4">
+    <aside className="hidden md:flex flex-col fixed left-0 top-16 bottom-0 w-64 z-30 py-4"
+      style={{ background: '#0D1827', borderRight: '1px solid rgba(255,255,255,0.07)' }}>
       <nav className="flex-1 px-3">
-        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-3 mb-3">Navigation</p>
+        <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider px-3 mb-3">Navigation</p>
         <ul className="space-y-1">
           {NAV_ITEMS.map(({ label, href, icon: Icon }) => {
             const isActive = pathname === href || (href !== '/trips' && pathname.startsWith(href));
@@ -32,11 +33,12 @@ export function Sidebar() {
                   className={cn(
                     'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200',
                     isActive
-                      ? 'bg-primary-50 text-primary-700'
-                      : 'text-gray-600 hover:bg-surface hover:text-gray-900',
+                      ? 'text-primary-400'
+                      : 'text-slate-400 hover:text-white hover:bg-white/5',
                   )}
+                  style={isActive ? { background: 'rgba(37,99,235,0.15)' } : {}}
                 >
-                  <Icon className={cn('w-5 h-5', isActive ? 'text-primary-600' : 'text-gray-400')} />
+                  <Icon className={cn('w-5 h-5', isActive ? 'text-primary-400' : 'text-slate-500')} />
                   {label}
                   {label === 'Create Trip' && (
                     <span className="ml-auto bg-primary-600 text-white text-xs px-2 py-0.5 rounded-full">New</span>
@@ -49,12 +51,12 @@ export function Sidebar() {
       </nav>
 
       {/* Bottom card */}
-      <div className="mx-3 p-4 bg-gradient-to-br from-primary-50 to-blue-50 rounded-2xl border border-primary-100">
+      <div className="mx-3 p-4 rounded-2xl" style={{ background: 'rgba(37,99,235,0.12)', border: '1px solid rgba(37,99,235,0.25)' }}>
         <div className="flex items-center gap-2 mb-2">
-          <Heart className="w-4 h-4 text-primary-600" />
-          <span className="text-sm font-semibold text-primary-900">Get Verified</span>
+          <Heart className="w-4 h-4 text-primary-400" />
+          <span className="text-sm font-semibold text-white">Get Verified</span>
         </div>
-        <p className="text-xs text-gray-600 mb-3">Boost your trust score and get more join requests approved.</p>
+        <p className="text-xs text-slate-400 mb-3">Boost your trust score and get more join requests approved.</p>
         <Link href="/profile" className="block text-center bg-primary-600 text-white text-xs font-semibold py-2 rounded-xl hover:bg-primary-700 transition-colors">
           Verify Now
         </Link>

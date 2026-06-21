@@ -8,12 +8,12 @@ interface BadgeProps {
 }
 
 const VARIANTS = {
-  default: 'bg-gray-100 text-gray-700',
-  success: 'bg-green-100 text-green-700',
-  warning: 'bg-yellow-100 text-yellow-700',
-  error: 'bg-red-100 text-red-700',
-  primary: 'bg-primary-100 text-primary-700',
-  outline: 'border border-gray-200 text-gray-600 bg-white',
+  default: 'bg-white/10 text-slate-300',
+  success: 'bg-green-500/15 text-green-400',
+  warning: 'bg-yellow-500/15 text-yellow-400',
+  error: 'bg-red-500/15 text-red-400',
+  primary: 'bg-primary-500/15 text-primary-400',
+  outline: 'border border-white/15 text-slate-400',
 };
 
 const SIZES = {

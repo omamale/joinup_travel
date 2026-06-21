@@ -26,8 +26,8 @@ export default function TripsPage() {
       {/* Header */}
       <div className="flex items-center justify-between gap-3">
         <div className="min-w-0">
-          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Discover Trips</h1>
-          <div className="flex items-center gap-1.5 text-xs sm:text-sm text-gray-500 mt-0.5">
+          <h1 className="text-xl sm:text-2xl font-bold text-white">Discover Trips</h1>
+          <div className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-400 mt-0.5">
             <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary-500 shrink-0" />
             {!isLoading && <span>{total} trips across India</span>}
           </div>
@@ -46,7 +46,7 @@ export default function TripsPage() {
       {error && (
         <div className="text-center py-12 card">
           <p className="text-error font-medium">Failed to load trips</p>
-          <p className="text-sm text-gray-400 mt-1">Please try again</p>
+          <p className="text-sm text-slate-500 mt-1">Please try again</p>
         </div>
       )}
 
@@ -62,8 +62,8 @@ export default function TripsPage() {
       ) : (
         <div className="text-center py-16 card">
           <div className="text-5xl mb-4">🌍</div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">No trips found</h3>
-          <p className="text-gray-500 mb-6">Be the first to create a trip!</p>
+          <h3 className="text-lg font-semibold text-white mb-2">No trips found</h3>
+          <p className="text-slate-400 mb-6">Be the first to create a trip!</p>
           <Link href="/trips/create" className="btn-primary inline-flex items-center gap-2">
             <Plus className="w-4 h-4" /> Create a Trip
           </Link>
@@ -80,7 +80,7 @@ export default function TripsPage() {
               className={`w-9 h-9 rounded-xl text-sm font-medium transition-all ${
                 filters.page === page
                   ? 'bg-primary-600 text-white'
-                  : 'bg-white text-gray-600 border border-gray-200 hover:border-primary-300'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
               {page}

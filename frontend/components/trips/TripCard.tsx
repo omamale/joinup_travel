@@ -40,19 +40,19 @@ export function TripCard({ trip }: TripCardProps) {
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-primary-100 to-blue-200 flex items-center justify-center">
+            <div className="w-full h-full flex items-center justify-center"
+              style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.3), rgba(30,64,175,0.4))' }}>
               <span className="text-5xl">{getTripTypeIcon(trip.tripType)}</span>
             </div>
           )}
 
-          {/* Overlays */}
           <div className="absolute top-3 left-3 flex items-center gap-1.5">
             <Badge variant={status.variant}>{status.label}</Badge>
             {isAlmostFull && <Badge variant="warning">Almost Full</Badge>}
           </div>
 
           <div className="absolute top-3 right-3">
-            <Badge variant="outline" className="bg-white/90 backdrop-blur-sm">
+            <Badge variant="outline" className="backdrop-blur-sm" style={{ background: 'rgba(13,24,39,0.7)' } as any}>
               {getTripTypeIcon(trip.tripType)} {trip.tripType.replace('_', ' ')}
             </Badge>
           </div>
@@ -77,27 +77,27 @@ export function TripCard({ trip }: TripCardProps) {
         {/* Content */}
         <div className="p-3 sm:p-4">
           <div className="flex items-start justify-between gap-1 mb-1.5">
-            <h3 className="font-semibold text-gray-900 text-xs sm:text-sm leading-tight group-hover:text-primary-600 transition-colors line-clamp-2">
+            <h3 className="font-semibold text-white text-xs sm:text-sm leading-tight group-hover:text-primary-400 transition-colors line-clamp-2">
               {trip.title}
             </h3>
-            <span className="text-xs font-bold text-gray-400 shrink-0">{getBudgetEmoji(trip.budgetRange)}</span>
+            <span className="text-xs font-bold text-slate-500 shrink-0">{getBudgetEmoji(trip.budgetRange)}</span>
           </div>
 
-          <div className="flex items-center gap-1 text-xs text-gray-500 mb-1">
+          <div className="flex items-center gap-1 text-xs mb-1">
             <MapPin className="w-3 h-3 text-primary-500 shrink-0" />
-            <span className="text-primary-600 font-medium truncate">{trip.destination}</span>
+            <span className="text-primary-400 font-medium truncate">{trip.destination}</span>
           </div>
 
-          <div className="flex items-center gap-1 text-xs text-gray-400 mb-2 sm:mb-3">
+          <div className="flex items-center gap-1 text-xs text-slate-500 mb-2 sm:mb-3">
             <Calendar className="w-3 h-3 shrink-0" />
             <span className="truncate">{formatTripDates(trip.startDate.toString(), trip.endDate.toString())}</span>
           </div>
 
           {trip.description && (
-            <p className="hidden sm:block text-xs text-gray-500 line-clamp-2 mb-3">{trip.description}</p>
+            <p className="hidden sm:block text-xs text-slate-500 line-clamp-2 mb-3">{trip.description}</p>
           )}
 
-          <div className="flex items-center justify-between pt-2 sm:pt-3 border-t border-gray-100">
+          <div className="flex items-center justify-between pt-2 sm:pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
             <div className="flex items-center gap-1.5 min-w-0">
               <Avatar
                 src={trip.organizer?.avatar}
@@ -105,12 +105,12 @@ export function TripCard({ trip }: TripCardProps) {
                 lastName={trip.organizer?.lastName || ''}
                 size="xs"
               />
-              <p className="text-xs font-medium text-gray-700 truncate hidden sm:block">{trip.organizer?.firstName}</p>
+              <p className="text-xs font-medium text-slate-400 truncate hidden sm:block">{trip.organizer?.firstName}</p>
             </div>
 
             <div className="text-right shrink-0">
-              <p className="text-xs sm:text-sm font-bold text-primary-600">{formatCurrencyINR(trip.budget)}</p>
-              <div className="flex items-center gap-1 text-xs text-gray-400 justify-end">
+              <p className="text-xs sm:text-sm font-bold text-primary-400">{formatCurrencyINR(trip.budget)}</p>
+              <div className="flex items-center gap-1 text-xs text-slate-500 justify-end">
                 <Users className="w-3 h-3" />
                 <span>{trip.currentMembers}/{trip.maxMembers}</span>
               </div>

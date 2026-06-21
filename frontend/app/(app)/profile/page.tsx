@@ -142,7 +142,7 @@ export default function ProfilePage() {
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between flex-wrap gap-3">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">{profile.firstName} {profile.lastName}</h1>
+                <h1 className="text-2xl font-bold text-white">{profile.firstName} {profile.lastName}</h1>
                 <div className="flex items-center gap-2 mt-1 flex-wrap">
                   <Badge className={trustBadge.color}>{trustBadge.label}</Badge>
                   {profile.verificationStatus !== 'UNVERIFIED' && (
@@ -151,7 +151,7 @@ export default function ProfilePage() {
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-3 text-sm text-gray-500 mt-2">
+                <div className="flex items-center gap-3 text-sm text-slate-400 mt-2">
                   {profile.age && <span>Age {profile.age}</span>}
                   {profile.gender && profile.gender !== 'PREFER_NOT_TO_SAY' && (
                     <span className="capitalize">{profile.gender.toLowerCase()}</span>
@@ -165,32 +165,32 @@ export default function ProfilePage() {
             </div>
 
             {profile.bio && (
-              <p className="text-gray-600 text-sm mt-3 leading-relaxed">{profile.bio}</p>
+              <p className="text-slate-400 text-sm mt-3 leading-relaxed">{profile.bio}</p>
             )}
 
-            <div className="flex items-center gap-4 mt-4 pt-4 border-t border-gray-100">
+            <div className="flex items-center gap-4 mt-4 pt-4 border-t border-white/10">
               <div className="text-center">
-                <p className="text-lg font-bold text-gray-900">{Math.round(profile.trustScore || 0)}</p>
-                <p className="text-xs text-gray-400">Trust Score</p>
+                <p className="text-lg font-bold text-white">{Math.round(profile.trustScore || 0)}</p>
+                <p className="text-xs text-slate-500">Trust Score</p>
               </div>
               <div className="text-center">
-                <p className="text-lg font-bold text-gray-900">{profile.tripsOrganized?.length || 0}</p>
-                <p className="text-xs text-gray-400">Trips Led</p>
+                <p className="text-lg font-bold text-white">{profile.tripsOrganized?.length || 0}</p>
+                <p className="text-xs text-slate-500">Trips Led</p>
               </div>
               <div className="text-center">
-                <p className="text-lg font-bold text-gray-900">{profile.tripMemberships?.length || 0}</p>
-                <p className="text-xs text-gray-400">Trips Joined</p>
+                <p className="text-lg font-bold text-white">{profile.tripMemberships?.length || 0}</p>
+                <p className="text-xs text-slate-500">Trips Joined</p>
               </div>
               <div className="text-center">
                 <div className="flex items-center gap-0.5">
                   <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                  <p className="text-lg font-bold text-gray-900">
+                  <p className="text-lg font-bold text-white">
                     {profile.reviewsReceived?.length > 0
                       ? (profile.reviewsReceived.reduce((a: number, r: any) => a + r.rating, 0) / profile.reviewsReceived.length).toFixed(1)
                       : '—'}
                   </p>
                 </div>
-                <p className="text-xs text-gray-400">Rating</p>
+                <p className="text-xs text-slate-500">Rating</p>
               </div>
             </div>
           </div>
@@ -200,14 +200,14 @@ export default function ProfilePage() {
       {/* Verification Status */}
       <div className="card p-5">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="font-semibold text-gray-900 flex items-center gap-2">
+          <h2 className="font-semibold text-white flex items-center gap-2">
             <Shield className="w-4 h-4 text-primary-500" /> Verification Status
           </h2>
           <span className="text-sm font-semibold text-primary-600">{Math.round(profile.trustScore || 0)}/100</span>
         </div>
 
         {/* Trust score bar */}
-        <div className="w-full bg-gray-100 rounded-full h-2 mb-5">
+        <div className="w-full rounded-full h-2 mb-5 bg-white/10">
           <div
             className="bg-gradient-to-r from-primary-500 to-blue-400 h-2 rounded-full transition-all duration-500"
             style={{ width: `${profile.trustScore || 0}%` }}
@@ -216,15 +216,15 @@ export default function ProfilePage() {
 
         <div className="grid grid-cols-2 gap-3">
           {verificationChecks.map((check) => (
-            <div key={check.key} className={`flex items-center gap-2 p-3 rounded-xl text-sm ${check.done ? 'bg-green-50' : 'bg-gray-50'}`}>
+            <div key={check.key} className={`flex items-center gap-2 p-3 rounded-xl text-sm ${check.done ? '' : ''}`}>
               <CheckCircle className={`w-4 h-4 shrink-0 ${check.done ? 'text-green-500' : 'text-gray-300'}`} />
-              <span className={check.done ? 'text-green-700 font-medium' : 'text-gray-400'}>{check.label}</span>
+              <span className={check.done ? 'text-green-400 font-medium' : 'text-slate-500'}>{check.label}</span>
             </div>
           ))}
         </div>
 
         {!profile.idVerified && (
-          <div className="mt-4 p-3 bg-blue-50 rounded-xl text-sm text-blue-700">
+          <div className="mt-4 p-3 rounded-xl text-sm text-blue-300 border border-blue-500/20">
             Upload your government ID to unlock full verification and increase your trust score significantly.
             <input ref={idFileRef} type="file" accept="image/*,.pdf" className="hidden" onChange={handleIdUpload} />
             <Button
@@ -243,7 +243,7 @@ export default function ProfilePage() {
       {/* Travel interests */}
       {profile.travelInterests?.length > 0 && (
         <div className="card p-5">
-          <h2 className="font-semibold text-gray-900 flex items-center gap-2 mb-3">
+          <h2 className="font-semibold text-white flex items-center gap-2 mb-3">
             <Heart className="w-4 h-4 text-primary-500" /> Travel Interests
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -257,7 +257,7 @@ export default function ProfilePage() {
       {/* Languages */}
       {profile.languagesSpoken?.length > 0 && (
         <div className="card p-5">
-          <h2 className="font-semibold text-gray-900 flex items-center gap-2 mb-3">
+          <h2 className="font-semibold text-white flex items-center gap-2 mb-3">
             <Globe className="w-4 h-4 text-primary-500" /> Languages
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -276,26 +276,26 @@ export default function ProfilePage() {
             <Input label="Last Name" value={editData.lastName || ''} onChange={(e) => setEditData({ ...editData, lastName: e.target.value })} />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">Bio</label>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">Bio</label>
             <textarea className="input-field resize-none h-24 text-sm" value={editData.bio || ''} placeholder="Tell others about yourself and your travel style..."
               onChange={(e) => setEditData({ ...editData, bio: e.target.value })} />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <Input label="Age" type="number" min={18} max={80} value={editData.age || ''} onChange={(e) => setEditData({ ...editData, age: Number(e.target.value) })} />
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Gender</label>
+              <label className="block text-sm font-medium text-slate-300 mb-1.5">Gender</label>
               <select className="input-field text-sm" value={editData.gender || ''} onChange={(e) => setEditData({ ...editData, gender: e.target.value })}>
                 {['MALE', 'FEMALE', 'NON_BINARY', 'PREFER_NOT_TO_SAY'].map((g) => <option key={g} value={g}>{g.replace('_', ' ')}</option>)}
               </select>
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Travel Interests</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">Travel Interests</label>
             <div className="flex flex-wrap gap-2">
               {TRAVEL_INTERESTS.map((interest) => (
                 <button key={interest} type="button" onClick={() => toggleInterest(interest)}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
-                    editData.travelInterests?.includes(interest) ? 'bg-primary-600 text-white border-primary-600' : 'bg-white text-gray-600 border-gray-200'
+                    editData.travelInterests?.includes(interest) ? 'bg-primary-600 text-white border-primary-600' : 'text-slate-400 border-white/10'
                   }`}>
                   {interest}
                 </button>
@@ -303,12 +303,12 @@ export default function ProfilePage() {
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Languages Spoken</label>
+            <label className="block text-sm font-medium text-slate-300 mb-2">Languages Spoken</label>
             <div className="flex flex-wrap gap-2">
               {LANGUAGES.map((lang) => (
                 <button key={lang} type="button" onClick={() => toggleLanguage(lang)}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
-                    editData.languagesSpoken?.includes(lang) ? 'bg-primary-600 text-white border-primary-600' : 'bg-white text-gray-600 border-gray-200'
+                    editData.languagesSpoken?.includes(lang) ? 'bg-primary-600 text-white border-primary-600' : 'text-slate-400 border-white/10'
                   }`}>
                   {lang}
                 </button>

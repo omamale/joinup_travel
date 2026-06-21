@@ -135,19 +135,19 @@ export default function AiPlannerPage() {
       {/* Header */}
       <div>
         <div className="flex items-center gap-2 mb-2">
-          <div className="w-8 h-8 bg-purple-100 rounded-xl flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-purple-600" />
+          <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: 'rgba(139,92,246,0.15)' }}>
+            <Sparkles className="w-5 h-5 text-purple-400" />
           </div>
-          <h1 className="text-2xl font-bold text-gray-900">AI Trip Planner</h1>
+          <h1 className="text-2xl font-bold text-white">AI Trip Planner</h1>
         </div>
-        <p className="text-gray-500">Enter your preferences and get a complete travel itinerary powered by GPT-4</p>
+        <p className="text-slate-400">Enter your preferences and get a complete travel itinerary powered by GPT-4</p>
       </div>
 
       <div className={`grid gap-8 ${itinerary ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 max-w-2xl mx-auto w-full'}`}>
         {/* Input form */}
         <div>
           <form onSubmit={handleSubmit(onSubmit)} className="card p-6 space-y-5">
-            <h2 className="font-semibold text-gray-900">Plan your trip</h2>
+            <h2 className="font-semibold text-white">Plan your trip</h2>
 
             {/* Destination */}
             <div>
@@ -165,7 +165,7 @@ export default function AiPlannerPage() {
                     type="button"
                     onClick={() => setValue('destination', dest)}
                     className={`text-xs px-2.5 py-1 rounded-full border transition-all ${
-                      watch('destination') === dest ? 'bg-primary-600 text-white border-primary-600' : 'border-gray-200 text-gray-500 hover:border-primary-300'
+                      watch('destination') === dest ? 'bg-primary-600 text-white border-primary-600' : 'text-slate-400 hover:text-white'
                     }`}
                   >
                     {dest}
@@ -184,18 +184,18 @@ export default function AiPlannerPage() {
                 leftIcon={<DollarSign className="w-4 h-4" />}
               />
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                <label className="block text-sm font-medium text-slate-300 mb-1.5">
                   <Calendar className="w-4 h-4 inline mr-1 text-primary-500" />
                   Days: {watch('days')}
                 </label>
                 <input type="range" {...register('days', { valueAsNumber: true })} min={1} max={14} className="w-full accent-primary-600" />
-                <div className="flex justify-between text-xs text-gray-400"><span>1</span><span>14</span></div>
+                <div className="flex justify-between text-xs text-slate-500"><span>1</span><span>14</span></div>
               </div>
             </div>
 
             {/* People */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              <label className="block text-sm font-medium text-slate-300 mb-1.5">
                 <Users className="w-4 h-4 inline mr-1 text-primary-500" />
                 Number of People: {watch('numberOfPeople')}
               </label>
@@ -204,17 +204,17 @@ export default function AiPlannerPage() {
 
             {/* Travel Style */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Travel Style</label>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Travel Style</label>
               <div className="grid grid-cols-2 gap-2">
                 {TRAVEL_STYLES.map((style) => (
                   <label key={style.value} className={`flex items-center gap-2 p-3 rounded-xl border-2 cursor-pointer transition-all ${
-                    watch('travelStyle') === style.value ? 'border-primary-500 bg-primary-50' : 'border-gray-100 hover:border-gray-200'
+                    watch('travelStyle') === style.value ? 'border-primary-500' : 'border-white/10 hover:border-white/20'
                   }`}>
                     <input type="radio" {...register('travelStyle')} value={style.value} className="sr-only" />
                     <span className="text-xl">{style.emoji}</span>
                     <div>
-                      <p className="text-sm font-medium text-gray-900">{style.label}</p>
-                      <p className="text-xs text-gray-400">{style.desc}</p>
+                      <p className="text-sm font-medium text-white">{style.label}</p>
+                      <p className="text-xs text-slate-500">{style.desc}</p>
                     </div>
                   </label>
                 ))}
@@ -223,14 +223,14 @@ export default function AiPlannerPage() {
 
             {/* Food Preference */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 <Utensils className="w-4 h-4 inline mr-1 text-primary-500" />
                 Food Preference
               </label>
               <div className="grid grid-cols-4 gap-2">
                 {FOOD_PREFS.map((food) => (
                   <label key={food.value} className={`flex flex-col items-center gap-1 p-2.5 rounded-xl border-2 cursor-pointer transition-all text-center ${
-                    watch('foodPreference') === food.value ? 'border-primary-500 bg-primary-50' : 'border-gray-100 hover:border-gray-200'
+                    watch('foodPreference') === food.value ? 'border-primary-500' : 'border-white/10 hover:border-white/20'
                   }`}>
                     <input type="radio" {...register('foodPreference')} value={food.value} className="sr-only" />
                     <span className="text-lg">{food.emoji}</span>
@@ -246,7 +246,7 @@ export default function AiPlannerPage() {
             </Button>
 
             {loading && (
-              <div className="text-center text-sm text-gray-400 animate-pulse">
+              <div className="text-center text-sm text-slate-500 animate-pulse">
                 Our AI is crafting your perfect {watch('days')}-day {watch('destination')} itinerary...
               </div>
             )}
@@ -257,23 +257,23 @@ export default function AiPlannerPage() {
         {itinerary && (
           <div className="space-y-5 animate-slide-up">
             {/* Summary card */}
-            <div className="card p-5 bg-gradient-to-br from-primary-50 to-blue-50 border-primary-100">
+            <div className="card p-5">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <h2 className="text-xl font-bold text-gray-900">{itinerary.destination}</h2>
-                  <p className="text-sm text-gray-600">{itinerary.totalDays} days · {formatCurrencyINR(itinerary.totalBudget)} total</p>
+                  <h2 className="text-xl font-bold text-white">{itinerary.destination}</h2>
+                  <p className="text-sm text-slate-400">{itinerary.totalDays} days · {formatCurrencyINR(itinerary.totalBudget)} total</p>
                 </div>
                 <div className="flex gap-2">
-                  <button onClick={handleShare} className="p-2 bg-white rounded-xl shadow-soft hover:shadow-card transition-all text-gray-500" title="Share itinerary">
+                  <button onClick={handleShare} className="p-2 rounded-xl transition-all text-slate-400 hover:text-white hover:bg-white/10" title="Share itinerary">
                     <Share2 className="w-4 h-4" />
                   </button>
-                  <button onClick={handleDownload} className="p-2 bg-white rounded-xl shadow-soft hover:shadow-card transition-all text-gray-500" title="Download as text">
+                  <button onClick={handleDownload} className="p-2 rounded-xl transition-all text-slate-400 hover:text-white hover:bg-white/10" title="Download as text">
                     <Download className="w-4 h-4" />
                   </button>
                 </div>
               </div>
               {(itinerary as any).summary && (
-                <p className="text-sm text-gray-600 leading-relaxed">{(itinerary as any).summary}</p>
+                <p className="text-sm text-slate-400 leading-relaxed">{(itinerary as any).summary}</p>
               )}
 
               {/* Budget breakdown */}
@@ -283,7 +283,7 @@ export default function AiPlannerPage() {
                     .filter(([k]) => k !== 'total')
                     .map(([key, val]) => (
                       <div key={key} className="bg-white rounded-xl p-2 text-center">
-                        <p className="text-xs text-gray-400 capitalize">{key}</p>
+                        <p className="text-xs text-slate-500 capitalize">{key}</p>
                         <p className="text-sm font-bold text-gray-900">{formatCurrencyINR(val as number)}</p>
                       </div>
                     ))}
@@ -294,7 +294,7 @@ export default function AiPlannerPage() {
             {/* Transport options */}
             {(itinerary as any).transportFromPune && (
               <div className="card p-4">
-                <h3 className="font-semibold text-gray-900 mb-3 text-sm">Getting There from Pune</h3>
+                <h3 className="font-semibold text-white mb-3 text-sm">Getting There from Pune</h3>
                 <div className="space-y-2">
                   {Object.entries((itinerary as any).transportFromPune).map(([mode, info]: any) => (
                     <div key={mode} className="flex items-center justify-between text-sm border-b border-gray-50 pb-2 last:border-0">
@@ -317,7 +317,7 @@ export default function AiPlannerPage() {
                     key={i}
                     onClick={() => setActiveDay(i)}
                     className={`shrink-0 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
-                      activeDay === i ? 'bg-primary-600 text-white' : 'bg-white text-gray-600 border border-gray-200 hover:border-primary-300'
+                      activeDay === i ? 'bg-primary-600 text-white' : 'text-slate-400 hover:text-white border border-white/10 hover:border-white/20'
                     }`}
                   >
                     Day {day.day}
@@ -340,9 +340,9 @@ export default function AiPlannerPage() {
                         <div key={i} className="flex gap-3 p-3 bg-surface rounded-xl">
                           <span className="text-xs font-mono text-primary-500 shrink-0 pt-0.5 w-12">{act.time}</span>
                           <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-gray-900">{act.name}</p>
+                            <p className="text-sm font-medium text-white">{act.name}</p>
                             <p className="text-xs text-gray-500 mt-0.5">{act.location} · {act.duration}</p>
-                            <p className="text-xs text-gray-400 mt-1 line-clamp-2">{act.description}</p>
+                            <p className="text-xs text-slate-500 mt-1 line-clamp-2">{act.description}</p>
                           </div>
                           <span className="text-xs text-gray-500 shrink-0">{formatCurrencyINR(act.cost)}</span>
                         </div>
@@ -351,7 +351,7 @@ export default function AiPlannerPage() {
 
                     {/* Hotel */}
                     {day.hotel && (
-                      <div className="p-3 border border-gray-100 rounded-xl">
+                      <div className="p-3 rounded-xl border border-white/10">
                         <div className="flex items-center gap-2 mb-1">
                           <Hotel className="w-4 h-4 text-primary-500" />
                           <span className="text-sm font-semibold text-gray-900">{day.hotel.name}</span>
@@ -360,20 +360,20 @@ export default function AiPlannerPage() {
                             <span className="text-xs text-gray-500">{day.hotel.rating}</span>
                           </div>
                         </div>
-                        <p className="text-xs text-gray-400">{day.hotel.location} · {formatCurrencyINR(day.hotel.pricePerNight)}/night</p>
+                        <p className="text-xs text-slate-500">{day.hotel.location} · {formatCurrencyINR(day.hotel.pricePerNight)}/night</p>
                       </div>
                     )}
 
                     {/* Meals */}
                     {day.meals?.length > 0 && (
                       <div>
-                        <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Meals</h4>
+                        <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Meals</h4>
                         <div className="grid grid-cols-1 gap-2">
                           {day.meals.map((meal: any, i: number) => (
                             <div key={i} className="flex items-center gap-2 text-sm">
                               <Coffee className="w-3.5 h-3.5 text-gray-400" />
-                              <span className="text-xs text-gray-400 w-16 shrink-0">{meal.time}</span>
-                              <span className="text-gray-700 font-medium">{meal.restaurant}</span>
+                              <span className="text-xs text-slate-500 w-16 shrink-0">{meal.time}</span>
+                              <span className="text-slate-300 font-medium">{meal.restaurant}</span>
                               <span className="text-gray-400 text-xs">· {meal.cuisine}</span>
                               <span className="ml-auto text-xs text-gray-500">{formatCurrencyINR(meal.cost)}</span>
                               {meal.isVeg && <span className="text-green-500 text-xs">🌿</span>}
@@ -384,9 +384,9 @@ export default function AiPlannerPage() {
                     )}
 
                     {day.tips && (
-                      <div className="bg-yellow-50 rounded-xl p-3">
-                        <p className="text-xs font-semibold text-yellow-700 mb-1">💡 Local Tip</p>
-                        <p className="text-xs text-yellow-600">{day.tips}</p>
+                      <div className="rounded-xl p-3 border border-yellow-500/20">
+                        <p className="text-xs font-semibold text-yellow-400 mb-1">💡 Local Tip</p>
+                        <p className="text-xs text-yellow-300/80">{day.tips}</p>
                       </div>
                     )}
                   </div>
@@ -397,10 +397,10 @@ export default function AiPlannerPage() {
             {/* Packing checklist */}
             {itinerary.packingChecklist?.length > 0 && (
               <div className="card p-5">
-                <h3 className="font-semibold text-gray-900 mb-3">Packing Checklist</h3>
+                <h3 className="font-semibold text-white mb-3">Packing Checklist</h3>
                 <div className="grid grid-cols-2 gap-1.5">
                   {itinerary.packingChecklist.map((item, i) => (
-                    <label key={i} className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+                    <label key={i} className="flex items-center gap-2 text-sm text-slate-400 cursor-pointer">
                       <input type="checkbox" className="accent-primary-600 rounded" />
                       {item}
                     </label>
@@ -412,10 +412,10 @@ export default function AiPlannerPage() {
             {/* Travel tips */}
             {itinerary.travelTips?.length > 0 && (
               <div className="card p-5">
-                <h3 className="font-semibold text-gray-900 mb-3">Travel Tips</h3>
+                <h3 className="font-semibold text-white mb-3">Travel Tips</h3>
                 <ul className="space-y-2">
                   {itinerary.travelTips.map((tip, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                    <li key={i} className="flex items-start gap-2 text-sm text-slate-400">
                       <Zap className="w-4 h-4 text-yellow-500 shrink-0 mt-0.5" />
                       {tip}
                     </li>

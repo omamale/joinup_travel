@@ -37,7 +37,7 @@ export function TripFilters() {
       {/* Search row */}
       <div className="flex gap-2 sm:gap-3">
         <form onSubmit={handleSearch} className="flex-1 relative min-w-0">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
           <input
             type="text"
             value={search}
@@ -69,8 +69,9 @@ export function TripFilters() {
         <button
           onClick={() => setFilters({ tripType: undefined })}
           className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium border transition-all ${
-            !filters.tripType ? 'bg-primary-600 text-white border-primary-600' : 'bg-white text-gray-600 border-gray-200 hover:border-primary-300'
+            !filters.tripType ? 'bg-primary-600 text-white border-primary-600' : 'text-slate-400 hover:text-white hover:border-white/20'
           }`}
+          style={!filters.tripType ? {} : { background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.12)' }}
         >
           All Trips
         </button>
@@ -79,8 +80,9 @@ export function TripFilters() {
             key={type}
             onClick={() => setFilters({ tripType: type as any })}
             className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium border transition-all ${
-              filters.tripType === type ? 'bg-primary-600 text-white border-primary-600' : 'bg-white text-gray-600 border-gray-200 hover:border-primary-300'
+              filters.tripType === type ? 'bg-primary-600 text-white border-primary-600' : 'text-slate-400 hover:text-white hover:border-white/20'
             }`}
+            style={filters.tripType === type ? {} : { background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.12)' }}
           >
             {type.replace('_', ' ')}
           </button>
@@ -91,7 +93,7 @@ export function TripFilters() {
       {showFilters && (
         <div className="card p-4 grid grid-cols-1 sm:grid-cols-3 gap-4 animate-fade-in">
           <div>
-            <label className="block text-xs font-medium text-gray-600 mb-1.5">Budget Range</label>
+            <label className="block text-xs font-medium text-slate-400 mb-1.5">Budget Range</label>
             <select
               className="input-field text-sm"
               onChange={(e) => {
@@ -105,7 +107,7 @@ export function TripFilters() {
             </select>
           </div>
           <div>
-            <label className="block text-xs font-medium text-gray-600 mb-1.5">Gender Preference</label>
+            <label className="block text-xs font-medium text-slate-400 mb-1.5">Gender Preference</label>
             <select
               className="input-field text-sm"
               onChange={(e) => setFilters({ genderPreference: e.target.value as any || undefined })}
@@ -116,7 +118,7 @@ export function TripFilters() {
             </select>
           </div>
           <div>
-            <label className="block text-xs font-medium text-gray-600 mb-1.5">Start Date</label>
+            <label className="block text-xs font-medium text-slate-400 mb-1.5">Start Date</label>
             <input
               type="date"
               className="input-field text-sm"
