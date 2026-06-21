@@ -153,7 +153,7 @@ function PhoneMockup() {
 
 /* ══════════════════════════════════════════════ */
 export default function LandingPage() {
-  const [navDark, setNavDark] = useState(true);
+  const navDark = true;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [joined, setJoined] = useState(false);
@@ -163,19 +163,6 @@ export default function LandingPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
 
-  useEffect(() => {
-    const darkIds = ['hero-section', 'features', 'ai-planner', 'waitlist', 'trust-safety'];
-    const active = new Set<string>();
-    const observers = darkIds.map(id => {
-      const el = document.getElementById(id); if (!el) return null;
-      const io = new IntersectionObserver(([e]) => {
-        if (e.isIntersecting) active.add(id); else active.delete(id);
-        setNavDark(active.size > 0);
-      }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
-      io.observe(el); return io;
-    });
-    return () => observers.forEach(io => io?.disconnect());
-  }, []);
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -216,7 +203,7 @@ export default function LandingPage() {
   const s7 = useInView(); const s8 = useInView();
 
   return (
-    <div className="min-h-screen overflow-x-hidden" style={{ background: '#fff' }}>
+    <div className="min-h-screen overflow-x-hidden" style={{ background: '#050D1A' }}>
 
       {/* ── NAVBAR ── */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-3 pointer-events-none">
@@ -527,21 +514,21 @@ export default function LandingPage() {
       </section>
 
       {/* ── PUNE TRIPS ── */}
-      <section id="city-trips" style={{ background: '#F8FAFC' }} className="py-16 md:py-24 px-5 sm:px-8">
+      <section id="city-trips" style={{ background: '#050D1A' }} className="py-16 md:py-24 px-5 sm:px-8">
         <div ref={s4.ref} className="max-w-6xl mx-auto">
           <div style={reveal(s4.v)} className="text-center mb-10 md:mb-14">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold mb-4"
               style={{ background: `${B.orng}15`, border: `1px solid ${B.orng}40`, color: B.orng }}>
               <MapPin className="w-3.5 h-3.5" /> Launching first in Pune
             </div>
-            <h2 className="font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight" style={{ color: B.dark, letterSpacing: '-0.02em' }}>
+            <h2 className="font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight" style={{ color: '#F1F5F9', letterSpacing: '-0.02em' }}>
               Sample trips from Pune
             </h2>
-            <p className="text-base sm:text-lg mt-3" style={{ color: '#6B7280' }}>These are the kinds of verified group trips you'll find on JoinUp.</p>
+            <p className="text-base sm:text-lg mt-3" style={{ color: 'rgba(255,255,255,0.5)' }}>These are the kinds of verified group trips you'll find on JoinUp.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
             {PUNE_TRIPS.map(({ from, to, duration, budget, type, img, color }, i) => (
-              <div key={to} style={{ ...reveal(s4.v, i * 0.1), border: '1px solid #f0f2f5' }}
+              <div key={to} style={{ ...reveal(s4.v, i * 0.1), border: '1px solid rgba(255,255,255,0.07)' }}
                 className="rounded-3xl overflow-hidden group hover:-translate-y-1 transition-all duration-300 hover:shadow-2xl">
                 <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -554,23 +541,23 @@ export default function LandingPage() {
                     <p className="text-white/70 text-sm">{duration}</p>
                   </div>
                 </div>
-                <div className="p-4 bg-white flex items-center justify-between">
+                <div className="p-4 flex items-center justify-between" style={{ background: '#0D1827' }}>
                   <div className="flex items-center gap-2">
                     <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: `${color}15` }}>
                       <Users className="w-3.5 h-3.5" style={{ color }} />
                     </div>
-                    <span className="text-xs text-gray-500 font-medium">Verified group</span>
+                    <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>Verified group</span>
                   </div>
                   <div className="text-right">
                     <p className="font-bold text-sm" style={{ color }}>{budget}</p>
-                    <p className="text-xs text-gray-400">per person</p>
+                    <p className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>per person</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
           <div style={reveal(s4.v, 0.4)} className="text-center mt-8">
-            <p className="text-sm text-gray-400">More destinations unlocking after launch. <a href="#waitlist" className="font-semibold underline" style={{ color: B.blue }}>Join the waitlist</a> to be first.</p>
+            <p className="text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>More destinations unlocking after launch. <a href="#waitlist" className="font-semibold underline" style={{ color: B.green }}>Join the waitlist</a> to be first.</p>
           </div>
         </div>
       </section>
@@ -763,23 +750,23 @@ export default function LandingPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" style={{ background: '#fff' }} className="py-16 md:py-24 px-5 sm:px-8">
+      <section id="faq" style={{ background: '#050D1A' }} className="py-16 md:py-24 px-5 sm:px-8">
         <div ref={s7.ref} className="max-w-2xl mx-auto">
           <div style={reveal(s7.v)} className="text-center mb-10">
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: B.blue }}>Questions</p>
-            <h2 className="font-extrabold text-3xl sm:text-4xl leading-tight" style={{ color: B.dark }}>Frequently asked</h2>
+            <h2 className="font-extrabold text-3xl sm:text-4xl leading-tight" style={{ color: '#F1F5F9' }}>Frequently asked</h2>
           </div>
           <div className="space-y-3">
             {FAQS.map(({ q, a }, i) => (
-              <div key={i} style={{ ...reveal(s7.v, i * 0.07), borderRadius: 16, border: '1px solid #f0f2f5' }} className="overflow-hidden">
-                <button className="w-full flex items-center justify-between p-4 sm:p-5 text-left font-semibold text-gray-900 text-sm sm:text-base"
+              <div key={i} style={{ ...reveal(s7.v, i * 0.07), borderRadius: 16, border: '1px solid rgba(255,255,255,0.07)', background: '#0D1827' }} className="overflow-hidden">
+                <button className="w-full flex items-center justify-between p-4 sm:p-5 text-left font-semibold text-white text-sm sm:text-base"
                   onClick={() => { setOpenFaq(openFaq === i ? null : i); track('faq_open', q); }}>
                   {q}
-                  {openFaq === i ? <ChevronUp className="w-5 h-5 shrink-0 text-gray-400" /> : <ChevronDown className="w-5 h-5 shrink-0 text-gray-400" />}
+                  {openFaq === i ? <ChevronUp className="w-5 h-5 shrink-0 text-slate-400" /> : <ChevronDown className="w-5 h-5 shrink-0 text-slate-400" />}
                 </button>
                 {openFaq === i && (
                   <div className="px-4 sm:px-5 pb-4 sm:pb-5">
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{a}</p>
+                    <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>{a}</p>
                   </div>
                 )}
               </div>
