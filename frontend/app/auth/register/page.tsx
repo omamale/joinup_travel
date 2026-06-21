@@ -77,13 +77,13 @@ export default function RegisterPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-1">Create your account</h1>
-      <p className="text-gray-500 mb-6 text-sm">Join 10,000+ verified travelers from Pune</p>
+      <h1 className="text-2xl font-bold text-white mb-1">Create your account</h1>
+      <p className="text-slate-400 mb-6 text-sm">Join 10,000+ verified travelers from Pune</p>
 
       {/* Perks */}
       <div className="grid grid-cols-2 gap-2 mb-6">
         {PERKS.map((perk) => (
-          <div key={perk} className="flex items-center gap-1.5 text-xs text-gray-600">
+          <div key={perk} className="flex items-center gap-1.5 text-xs text-slate-400">
             <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
             {perk}
           </div>
@@ -93,7 +93,8 @@ export default function RegisterPage() {
       {/* Google */}
       <button
         onClick={onGoogleLogin}
-        className="w-full flex items-center justify-center gap-3 py-3 px-4 border border-gray-200 rounded-xl text-gray-700 font-medium hover:bg-gray-50 transition-colors mb-4"
+        className="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl font-medium transition-colors mb-4"
+        style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.10)', color: '#E2E8F0' }}
       >
         <svg className="w-5 h-5" viewBox="0 0 24 24">
           <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -105,32 +106,32 @@ export default function RegisterPage() {
       </button>
 
       <div className="flex items-center gap-3 mb-5">
-        <div className="flex-1 h-px bg-gray-200" />
-        <span className="text-xs text-gray-400">or register with email</span>
-        <div className="flex-1 h-px bg-gray-200" />
+        <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
+        <span className="text-xs text-slate-500">or register with email</span>
+        <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-1.5">First Name</label>
+            <label className="block text-xs font-medium text-slate-300 mb-1.5">First Name</label>
             <div className="relative">
-              <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <input {...register('firstName')} placeholder="Rahul" className="input-field pl-9 text-sm" />
             </div>
             {errors.firstName && <p className="text-error text-xs mt-1">{errors.firstName.message}</p>}
           </div>
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-1.5">Last Name</label>
+            <label className="block text-xs font-medium text-slate-300 mb-1.5">Last Name</label>
             <input {...register('lastName')} placeholder="Sharma" className="input-field text-sm" />
             {errors.lastName && <p className="text-error text-xs mt-1">{errors.lastName.message}</p>}
           </div>
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-gray-700 mb-1.5">Email</label>
+          <label className="block text-xs font-medium text-slate-300 mb-1.5">Email</label>
           <div className="relative">
-            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
             <input {...register('email')} type="email" placeholder="rahul@example.com" className="input-field pl-9 text-sm" />
           </div>
           {errors.email && <p className="text-error text-xs mt-1">{errors.email.message}</p>}
@@ -138,12 +139,12 @@ export default function RegisterPage() {
 
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-1.5">Age</label>
+            <label className="block text-xs font-medium text-slate-300 mb-1.5">Age</label>
             <input {...register('age', { valueAsNumber: true })} type="number" min={18} max={80} placeholder="25" className="input-field text-sm" />
             {errors.age && <p className="text-error text-xs mt-1">{errors.age.message}</p>}
           </div>
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-1.5">Gender</label>
+            <label className="block text-xs font-medium text-slate-300 mb-1.5">Gender</label>
             <select {...register('gender')} className="input-field text-sm">
               {GENDER_OPTIONS.map((opt) => (
                 <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -153,16 +154,16 @@ export default function RegisterPage() {
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-gray-700 mb-1.5">Password</label>
+          <label className="block text-xs font-medium text-slate-300 mb-1.5">Password</label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
             <input
               {...register('password')}
               type={showPassword ? 'text' : 'password'}
               placeholder="Min. 8 chars with uppercase & number"
               className="input-field pl-9 pr-10 text-sm"
             />
-            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500">
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
             </button>
           </div>
@@ -170,19 +171,19 @@ export default function RegisterPage() {
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-gray-700 mb-1.5">Confirm Password</label>
+          <label className="block text-xs font-medium text-slate-300 mb-1.5">Confirm Password</label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
             <input {...register('confirmPassword')} type="password" placeholder="••••••••" className="input-field pl-9 text-sm" />
           </div>
           {errors.confirmPassword && <p className="text-error text-xs mt-1">{errors.confirmPassword.message}</p>}
         </div>
 
-        <p className="text-xs text-gray-400">
+        <p className="text-xs text-slate-500">
           By signing up, you agree to our{' '}
-          <Link href="/terms" className="text-primary-600 hover:underline">Terms of Service</Link>
+          <Link href="/terms" className="text-primary-500 hover:underline">Terms of Service</Link>
           {' '}and{' '}
-          <Link href="/privacy" className="text-primary-600 hover:underline">Privacy Policy</Link>
+          <Link href="/privacy" className="text-primary-500 hover:underline">Privacy Policy</Link>
         </p>
 
         <button type="submit" disabled={loading} className="btn-primary w-full flex items-center justify-center gap-2">
@@ -190,9 +191,9 @@ export default function RegisterPage() {
         </button>
       </form>
 
-      <p className="text-center text-sm text-gray-500 mt-5">
+      <p className="text-center text-sm text-slate-500 mt-5">
         Already have an account?{' '}
-        <Link href="/auth/login" className="text-primary-600 font-semibold hover:underline">Sign in</Link>
+        <Link href="/auth/login" className="text-primary-500 font-semibold hover:underline">Sign in</Link>
       </p>
     </div>
   );
