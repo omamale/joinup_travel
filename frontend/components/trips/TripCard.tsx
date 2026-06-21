@@ -52,9 +52,10 @@ export function TripCard({ trip }: TripCardProps) {
           </div>
 
           <div className="absolute top-3 right-3">
-            <Badge variant="outline" className="backdrop-blur-sm" style={{ background: 'rgba(13,24,39,0.7)' } as any}>
+            <span className="inline-flex items-center gap-1 rounded-full text-xs font-medium px-2.5 py-1 text-slate-300 backdrop-blur-sm"
+              style={{ background: 'rgba(13,24,39,0.75)', border: '1px solid rgba(255,255,255,0.15)' }}>
               {getTripTypeIcon(trip.tripType)} {trip.tripType.replace('_', ' ')}
-            </Badge>
+            </span>
           </div>
 
           {trip.isJoined && (

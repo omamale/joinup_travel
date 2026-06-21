@@ -217,7 +217,7 @@ export default function ProfilePage() {
         <div className="grid grid-cols-2 gap-3">
           {verificationChecks.map((check) => (
             <div key={check.key} className={`flex items-center gap-2 p-3 rounded-xl text-sm ${check.done ? '' : ''}`}>
-              <CheckCircle className={`w-4 h-4 shrink-0 ${check.done ? 'text-green-500' : 'text-gray-300'}`} />
+              <CheckCircle className={`w-4 h-4 shrink-0 ${check.done ? 'text-green-400' : 'text-slate-600'}`} />
               <span className={check.done ? 'text-green-400 font-medium' : 'text-slate-500'}>{check.label}</span>
             </div>
           ))}

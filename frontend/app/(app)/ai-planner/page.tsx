@@ -234,7 +234,7 @@ export default function AiPlannerPage() {
                   }`}>
                     <input type="radio" {...register('foodPreference')} value={food.value} className="sr-only" />
                     <span className="text-lg">{food.emoji}</span>
-                    <span className="text-xs font-medium text-gray-700">{food.label}</span>
+                    <span className="text-xs font-medium text-slate-300">{food.label}</span>
                   </label>
                 ))}
               </div>
@@ -282,9 +282,9 @@ export default function AiPlannerPage() {
                   {Object.entries(itinerary.budgetBreakdown)
                     .filter(([k]) => k !== 'total')
                     .map(([key, val]) => (
-                      <div key={key} className="bg-white rounded-xl p-2 text-center">
+                      <div key={key} className="rounded-xl p-2 text-center" style={{ background: 'rgba(255,255,255,0.05)' }}>
                         <p className="text-xs text-slate-500 capitalize">{key}</p>
-                        <p className="text-sm font-bold text-gray-900">{formatCurrencyINR(val as number)}</p>
+                        <p className="text-sm font-bold text-white">{formatCurrencyINR(val as number)}</p>
                       </div>
                     ))}
                 </div>
@@ -297,10 +297,10 @@ export default function AiPlannerPage() {
                 <h3 className="font-semibold text-white mb-3 text-sm">Getting There from Pune</h3>
                 <div className="space-y-2">
                   {Object.entries((itinerary as any).transportFromPune).map(([mode, info]: any) => (
-                    <div key={mode} className="flex items-center justify-between text-sm border-b border-gray-50 pb-2 last:border-0">
-                      <span className="text-gray-600 capitalize font-medium">{mode.replace('by', 'By ')}</span>
+                    <div key={mode} className="flex items-center justify-between text-sm border-b border-white/5 pb-2 last:border-0">
+                      <span className="text-slate-400 capitalize font-medium">{mode.replace('by', 'By ')}</span>
                       <div className="text-right">
-                        <span className="text-gray-900 font-medium">{formatCurrencyINR(info.cost)}</span>
+                        <span className="text-white font-medium">{formatCurrencyINR(info.cost)}</span>
                         <span className="text-gray-400 text-xs ml-2">· {info.duration}</span>
                       </div>
                     </div>
