@@ -41,7 +41,7 @@ export function TripCard({ trip }: TripCardProps) {
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.3), rgba(30,64,175,0.4))' }}>
+              style={{ background: 'linear-gradient(135deg, #0D1E33 0%, #0A1628 100%)' }}>
               <span className="text-5xl">{getTripTypeIcon(trip.tripType)}</span>
             </div>
           )}
