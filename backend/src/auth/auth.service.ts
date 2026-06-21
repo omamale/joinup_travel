@@ -7,6 +7,7 @@ import * as bcrypt from 'bcryptjs';
 import { RegisterDto, LoginDto, VerifyOtpDto } from './dto/register.dto';
 import { User } from '@prisma/client';
 import * as crypto from 'crypto';
+import axios from 'axios';
 
 @Injectable()
 export class AuthService {
@@ -61,8 +62,26 @@ export class AuthService {
       data: { code: otp, phone: normalizedPhone, expiresAt },
     });
 
-    // In production, send via Twilio
-    console.log(`OTP for ${normalizedPhone}: ${otp}`);
+    const apiKey = this.config.get<string>('FAST2SMS_API_KEY');
+    if (apiKey) {
+      try {
+        await axios.post(
+          'https://www.fast2sms.com/dev/bulkV2',
+          {
+            variables_values: otp,
+            route: 'otp',
+            numbers: normalizedPhone.replace('+91', ''),
+          },
+          { headers: { authorization: apiKey } },
+        );
+      } catch (e) {
+        console.error('Fast2SMS error:', e?.response?.data || e.message);
+        throw new BadRequestException('Failed to send OTP. Please try again.');
+      }
+    } else {
+      // Dev fallback: log to console
+      console.log(`[DEV] OTP for ${normalizedPhone}: ${otp}`);
+    }
 
     return { message: 'OTP sent successfully', phone: normalizedPhone };
   }
