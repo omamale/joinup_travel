@@ -10,7 +10,7 @@ const config: Config = {
         success: '#10B981',
         warning: '#F59E0B',
         error: '#EF4444',
-        surface: '#F3F4F6',
+        surface: '#0D1827',
       },
       fontFamily: { sans: ['var(--font-inter)', 'system-ui', 'sans-serif'] },
       borderRadius: { '2xl': '16px', '3xl': '24px' },

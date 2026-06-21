@@ -97,13 +97,14 @@ export default function LoginPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-1">Welcome back</h1>
-      <p className="text-gray-500 mb-6 text-sm">Sign in to find your next travel companion</p>
+      <h1 className="text-2xl font-bold text-white mb-1">Welcome back</h1>
+      <p className="text-slate-400 mb-6 text-sm">Sign in to find your next travel companion</p>
 
       {/* Google Login */}
       <button
         onClick={onGoogleLogin}
-        className="w-full flex items-center justify-center gap-3 py-3 px-4 border border-gray-200 rounded-xl text-gray-700 font-medium hover:bg-gray-50 transition-colors mb-4"
+        className="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl font-medium transition-colors mb-4"
+        style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.10)', color: '#E2E8F0' }}
       >
         <svg className="w-5 h-5" viewBox="0 0 24 24">
           <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -115,22 +116,24 @@ export default function LoginPage() {
       </button>
 
       <div className="flex items-center gap-3 mb-4">
-        <div className="flex-1 h-px bg-gray-200" />
-        <span className="text-xs text-gray-400 font-medium">or</span>
-        <div className="flex-1 h-px bg-gray-200" />
+        <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
+        <span className="text-xs text-slate-500 font-medium">or</span>
+        <div className="flex-1 h-px" style={{ background: 'rgba(255,255,255,0.08)' }} />
       </div>
 
       {/* Tab toggle */}
-      <div className="flex bg-surface rounded-xl p-1 mb-5">
+      <div className="flex rounded-xl p-1 mb-5" style={{ background: 'rgba(255,255,255,0.05)' }}>
         <button
           onClick={() => { setLoginMode('email'); setOtpSent(false); }}
-          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-sm font-medium transition-all ${loginMode === 'email' ? 'bg-white shadow-soft text-gray-900' : 'text-gray-500'}`}
+          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-sm font-medium transition-all ${loginMode === 'email' ? 'text-white' : 'text-slate-500'}`}
+          style={loginMode === 'email' ? { background: 'rgba(255,255,255,0.10)' } : {}}
         >
           <Mail className="w-4 h-4" /> Email
         </button>
         <button
           onClick={() => { setLoginMode('phone'); setOtpSent(false); }}
-          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-sm font-medium transition-all ${loginMode === 'phone' ? 'bg-white shadow-soft text-gray-900' : 'text-gray-500'}`}
+          className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-sm font-medium transition-all ${loginMode === 'phone' ? 'text-white' : 'text-slate-500'}`}
+          style={loginMode === 'phone' ? { background: 'rgba(255,255,255,0.10)' } : {}}
         >
           <Phone className="w-4 h-4" /> Phone OTP
         </button>
@@ -139,9 +142,9 @@ export default function LoginPage() {
       {loginMode === 'email' ? (
         <form onSubmit={handleSubmit(onEmailLogin)} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">Email</label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <input
                 {...register('email')}
                 type="email"
@@ -154,18 +157,18 @@ export default function LoginPage() {
 
           <div>
             <div className="flex justify-between items-center mb-1.5">
-              <label className="block text-sm font-medium text-gray-700">Password</label>
+              <label className="block text-sm font-medium text-slate-300">Password</label>
               <Link href="/auth/forgot-password" className="text-xs text-primary-600 hover:underline">Forgot password?</Link>
             </div>
             <div className="relative">
-              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <input
                 {...register('password')}
                 type={showPassword ? 'text' : 'password'}
                 placeholder="••••••••"
                 className="input-field pl-10 pr-10"
               />
-              <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+              <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-gray-600">
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
@@ -179,7 +182,7 @@ export default function LoginPage() {
       ) : (
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">Phone Number</label>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">Phone Number</label>
             <div className="relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">+91</span>
               <input
@@ -194,7 +197,7 @@ export default function LoginPage() {
 
           {otpSent && (
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Enter OTP</label>
+              <label className="block text-sm font-medium text-slate-300 mb-1.5">Enter OTP</label>
               <input
                 type="text"
                 maxLength={6}
@@ -206,7 +209,7 @@ export default function LoginPage() {
                   }
                 }}
               />
-              <p className="text-xs text-gray-400 mt-1 text-center">OTP sent to +91 {phoneValue}</p>
+              <p className="text-xs text-slate-500 mt-1 text-center">OTP sent to +91 {phoneValue}</p>
             </div>
           )}
 
