@@ -835,9 +835,20 @@ export default function LandingPage() {
               </div>
             ))}
           </div>
-          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-xs" style={{ color: 'rgba(255,255,255,0.25)' }}>© 2026 JoinUp Travel. Made with ❤️ in Pune, India.</p>
-            <p className="text-xs font-medium text-center" style={{ color: 'rgba(255,255,255,0.3)' }}>JoinUp Travel — Never Travel Alone.</p>
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+            <p className="text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>
+              © 2026 JoinUp Travel •{' '}
+              <span className="relative inline-block">
+                <span className="animate-pulse-soft font-semibold"
+                  style={{ background: 'linear-gradient(90deg, #2BB673, #0F4C81, #FF8A3D, #2BB673)', backgroundSize: '200% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', animation: 'shimmer 3s linear infinite' }}>
+                  Built by Om Amale
+                </span>
+              </span>
+            </p>
+            <p className="text-xs font-semibold text-center tracking-wide"
+              style={{ background: 'linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.25), rgba(255,255,255,0.5))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              JoinUp Travel — Never Travel Alone.
+            </p>
           </div>
         </div>
       </footer>
