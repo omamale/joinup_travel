@@ -229,7 +229,9 @@ export default function LandingPage() {
               ))}
             </div>
             <div className="hidden md:flex items-center gap-2">
-              <Link href="/auth/login" className="text-sm font-medium px-4 py-2 rounded-xl" style={{ color: navDark ? 'rgba(255,255,255,0.8)' : B.blue }}>Sign In</Link>
+              <Link href="/auth/login" className="text-sm font-medium px-4 py-2 rounded-xl" style={{ color: 'rgba(255,255,255,0.8)' }}>Sign In</Link>
+              <Link href="/auth/register" className="text-sm font-semibold px-4 py-2.5 rounded-xl text-white transition-all hover:scale-105"
+                style={{ background: `linear-gradient(135deg, ${B.green}, #1DA05E)` }}>Sign Up</Link>
               <a href="#waitlist" onClick={() => track('cta_click', 'nav_join_waitlist')}
                 className="text-sm font-semibold px-4 py-2.5 rounded-xl text-white transition-all hover:scale-105"
                 style={{ background: `linear-gradient(135deg, ${B.blue}, #1E40AF)` }}>Join Waitlist</a>
@@ -239,13 +241,26 @@ export default function LandingPage() {
             </button>
           </div>
           {mobileOpen && (
-            <div className="md:hidden border-t px-4 py-4 flex flex-col gap-3" style={{ borderColor: navDark ? 'rgba(255,255,255,0.08)' : '#f0f0f0' }}>
+            <div className="md:hidden border-t px-4 py-4 flex flex-col gap-3" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
               {[['How It Works', '#how-it-works'], ['Safety', '#trust-safety'], ['Trips', '#city-trips'], ['FAQ', '#faq']].map(([l, h]) => (
-                <a key={l} href={h} className="font-medium py-2" style={{ color: navDark ? 'rgba(255,255,255,0.8)' : '#374151' }} onClick={() => setMobileOpen(false)}>{l}</a>
+                <a key={l} href={h} className="font-medium py-2 text-white/80" onClick={() => setMobileOpen(false)}>{l}</a>
               ))}
-              <hr style={{ borderColor: navDark ? 'rgba(255,255,255,0.08)' : '#f0f0f0' }} />
-              <a href="#waitlist" className="text-center font-semibold py-3 rounded-xl text-white"
-                style={{ background: `linear-gradient(135deg, ${B.blue}, #1E40AF)` }} onClick={() => setMobileOpen(false)}>Join Waitlist</a>
+              <hr style={{ borderColor: 'rgba(255,255,255,0.08)' }} />
+              <div className="flex gap-2">
+                <Link href="/auth/login" onClick={() => setMobileOpen(false)}
+                  className="flex-1 text-center font-semibold py-3 rounded-xl text-white/80 border border-white/20 transition-all hover:bg-white/10">
+                  Sign In
+                </Link>
+                <Link href="/auth/register" onClick={() => setMobileOpen(false)}
+                  className="flex-1 text-center font-semibold py-3 rounded-xl text-white transition-all"
+                  style={{ background: `linear-gradient(135deg, ${B.green}, #1DA05E)` }}>
+                  Sign Up
+                </Link>
+              </div>
+              <a href="#waitlist" className="text-center font-semibold py-3 rounded-xl text-white transition-all"
+                style={{ background: `linear-gradient(135deg, ${B.blue}, #1E40AF)` }} onClick={() => setMobileOpen(false)}>
+                Join Waitlist
+              </a>
             </div>
           )}
         </div>
